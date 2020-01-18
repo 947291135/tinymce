@@ -1,7 +1,6 @@
 <template>
   <div class="tinymce">
     <textarea :id='tinymceID' class="tinymce" :style="{width:containerWidth}"></textarea>
-    <p ref='test' v-html="tinymceHtml"></p>
   </div>
 </template>
 
@@ -11,7 +10,7 @@
 // import Editor from '@tinymce/tinymce-vue'
 import load from '@/assets/js/dynamicLoadScript.js'
 import Prism from 'prismjs'
-const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
+const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce@5.1.5/tinymce.min.js'
 export default {
   name: 'HelloWorld',
   data () {
@@ -72,8 +71,10 @@ export default {
       let _this = this
       window.tinymce.init({
         selector: `#${this.tinymceID}`,
+        language_url: '/static/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
         height: this.height,
+        toolbar_drawer: 'sliding',
         plugins: 'advlist autolink link image lists preview codesample print fullscreen charmap',
         toolbar1: 'undo redo | styleselect removeformat | bullist numlist | fontselect | fontsizeselect | link image codesample | fullscreen',
         fontsize_formats: '12px 14px 16px 18px 20px 24px 28px 30px 36px 48px',
@@ -125,7 +126,7 @@ export default {
   },
   watch: {
     tinymceHtml (news, old) {
-      this.$emit('updata:content', news)
+      this.$emit('update:content', news)
       this.$nextTick(() => {
         Prism.highlightAll()
       })
