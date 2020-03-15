@@ -80,8 +80,8 @@
         </el-row>
       </el-form>
     </div>
-    <div ref='tinymce' class="tinymce">
-      <tinymce :content.sync="content" :height='tinymceHeight'></tinymce>
+    <div ref="tinymce" class="tinymce" >
+      <tinymce v-if="tinymceSHOW" :content.sync="content" :height="tinymceHeight<=0?200:tinymceHeight"></tinymce>
     </div>
   </div>
 </template>
@@ -104,6 +104,7 @@ export default {
       imageUrl: null, // 真正的上传成功的图片url 为null：代表已经选择，还未上传; 为url：已上传
       content: '', // 富文本内容
       tinymceHeight: 0,
+      tinymceSHOW: true,
       ArticleList: [
         {
           type: 'php',
@@ -145,13 +146,23 @@ export default {
   components: {
     tinymce
   },
+  created () {
+    console.log(process.env.API_ROOT)
+  },
   mounted () {
-    this.$nextTick(() => {
-      let tinymceDOM = this.$refs.tinymce.getBoundingClientRect()
-      this.tinymceHeight = tinymceDOM.height - 20 * 2
-    })
+    this.tinymceSHOW = false
+    this.height()
+    setTimeout(() => {
+      this.tinymceSHOW = true
+    }, 50)
   },
   methods: {
+    height () {
+      this.$nextTick(() => {
+        let tinymceDOM = this.$refs.tinymce.getBoundingClientRect()
+        this.tinymceHeight = tinymceDOM.height - 40
+      })
+    },
     handleAvatarSuccess (res, file) {
       // 图片上传成功
       this.imageUrl = res.location
@@ -193,22 +204,22 @@ export default {
 </script>
 
 <style scoped>
-.body{
+.body {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
-  flex-direction:column
+  flex-direction: column;
 }
 .body .form {
   padding: 20px 20px 0 20px;
   overflow: hidden;
   box-sizing: border-box;
-  flex: 0 0 auto
+  flex: 0 0 auto;
 }
-.body>.tinymce{
+.body > .tinymce {
   flex: 1;
   box-sizing: border-box;
   padding: 20px;
