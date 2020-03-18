@@ -32,7 +32,11 @@ export default {
   computed: {
     activeMenu () {
       const route = this.$route
-      const {path} = route
+      const {path, meta} = route
+      if (meta.activeMenu) {
+        console.log(meta.activeMenu)
+        return meta.activeMenu
+      }
       return path
     }
   },

@@ -20,7 +20,8 @@ export default new Router({
           name: 'Textarea',
           meta: {
             title: '首页',
-            icon: 'el-icon-menu'
+            icon: 'el-icon-menu',
+            activeMenu: '/'
           }
         }
       ]
@@ -40,7 +41,8 @@ export default new Router({
           component: () => import('@/view/axios.vue'),
           meta: {
             title: 'Axios',
-            icon: 'el-icon-s-promotion'
+            icon: 'el-icon-s-promotion',
+            activeMenu: '/axios'
           }
         }
       ]
