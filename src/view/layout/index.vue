@@ -1,13 +1,22 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <div class="app-wapper" :class="sidebarshow?'hideSidebar':'showSidebar'">
+        <div class="sidebar-container">
+            <sidebar :show='sidebarshow'></sidebar>
+        </div>
+        <div class="app-wrapper">
+            <div class="navbar">
+                <i @click="sidebarClick" :class="['icon',sidebarshow?'el-icon-s-unfold':'el-icon-s-fold']"></i>
+            </div>
+            <div class="roter-content">
+                <router-view/>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 import sidebar from '@/components/sidebar'
 export default {
-  name: 'App',
   data () {
     return {
       sidebarshow: true
@@ -25,20 +34,7 @@ export default {
 </script>
 
 <style scoped>
-  body,html{
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-  #app{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-  }
-  .app-wrapper{
+.app-wrapper{
     position: absolute;
     top: 0;
     left: 0;
