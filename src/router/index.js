@@ -46,6 +46,48 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/upload',
+      component: Layout,
+      redirect: '/upload/index',
+      meta: {
+        title: '七牛图片上传',
+        icon: 'el-icon-upload'
+      },
+      children: [
+        {
+          path: 'index',
+          name: 'upload',
+          component: () => import('@/view/upload.vue'),
+          meta: {
+            title: 'upload',
+            icon: 'el-icon-upload',
+            activeMenu: '/upload'
+          }
+        }
+      ]
+    },
+    {
+      path: '/social',
+      component: Layout,
+      redirect: '/social/index',
+      meta: {
+        title: '聊天系统',
+        icon: 'el-icon-orange'
+      },
+      children: [
+        {
+          path: 'index',
+          name: 'social',
+          component: () => import('@/view/upload.vue'),
+          meta: {
+            title: 'upload',
+            icon: 'el-icon-orange',
+            activeMenu: '/social'
+          }
+        }
+      ]
     }
   ]
 })

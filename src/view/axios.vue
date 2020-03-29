@@ -1,27 +1,56 @@
 <!-- 跨域测试页面 -->
 <template>
     <div class="axios">
-      <el-form ref="form" :model="form" label-width="120px" size='mini' label-position='top'>
-        <el-form-item label="XMLHttpRequest">
-          <el-button type="primary" @click="xml()">普通请求</el-button>
-          <el-button type="primary" @click="xml('/api/proxy.php')">proxy请求</el-button>
-          <el-button type="primary" @click="xmlJSONP('http://www.api.com/jsonp.php')" >jsonp请求</el-button>
-          <el-button type="primary" @click="xml('http://www.api.com/CORS.php')">cors请求</el-button>
-        </el-form-item>
-        <el-form-item label="axios">
-          <el-button type="primary" @click="axios('http://www.api.com/index.php')">普通请求</el-button>
-          <el-button type="primary" @click="axios('/api/proxy.php')">proxy请求</el-button>
-          <el-button type="primary" disabled>jsonp请求</el-button>
-          <el-button type="primary"  @click="axios('http://www.api.com/CORS.php')">cors请求</el-button>
-          <el-button type="primary"  @click="Blog('http://localhost/phpdemo/excel.php')">Blog文件流</el-button>
-        </el-form-item>
-        <el-form-item label="JQ">
-          <el-button type="primary" @click="JQuery('http://www.api.com/index.php')">普通请求</el-button>
-          <el-button type="primary" @click="JQuery('/api/proxy.php')">proxy请求</el-button>
-          <el-button type="primary" @click="JQuery_Jsonp('http://www.api.com/jsonp.php')">jsonp请求</el-button>
-          <el-button type="primary"  @click="JQuery('http://www.api.com/CORS.php')">cors请求</el-button>
-        </el-form-item>
-      </el-form>
+      <el-row>
+        <el-form ref="form" :model="form" label-width="120px" size='mini' label-position='top'>
+          <el-form-item label="XMLHttpRequest">
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="xml()">普通请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="xml('/api/proxy.php')">proxy请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="xmlJSONP('http://www.api.com/jsonp.php')" >jsonp请求</el-button>
+            </el-col>
+             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="xml('http://www.api.com/CORS.php')">cors请求</el-button>
+            </el-col>
+
+          </el-form-item>
+          <el-form-item label="axios">
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="axios('http://www.api.com/index.php')">普通请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="axios('/api/proxy.php')">proxy请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" disabled>jsonp请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary"  @click="axios('http://www.api.com/CORS.php')">cors请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary"  @click="Blog('http://localhost/phpdemo/excel.php')">Blog文件流</el-button>
+            </el-col>
+          </el-form-item>
+          <el-form-item label="JQ">
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="JQuery('http://www.api.com/index.php')">普通请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="JQuery('/api/proxy.php')">proxy请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="JQuery_Jsonp('http://www.api.com/jsonp.php')">jsonp请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary"  @click="JQuery('http://www.api.com/CORS.php')">cors请求</el-button>
+            </el-col>
+          </el-form-item>
+        </el-form>
+      </el-row>
     </div>
 </template>
 
@@ -163,5 +192,8 @@ export default {
 <style scoped>
 .axios{
     padding: 20px 20px 0 20px;
+}
+button{
+  margin-bottom: 15px;
 }
 </style>

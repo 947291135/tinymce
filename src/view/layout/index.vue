@@ -45,11 +45,11 @@ export default {
     transition: all .3s
   }
   .hideSidebar .app-wrapper{
-    /* margin-left: 64px; */
+    margin-right: 64px;
     transform: translateX(64px);
   }
   .showSidebar .app-wrapper{
-    /* margin-left: 200px; */
+    margin-right: 200px;
     transform: translateX(200px);
   }
   .app-wrapper .navbar{
@@ -92,11 +92,11 @@ export default {
       transform: translateX(0px)
     }
     .hideSidebar .app-wrapper{
-      margin-left: 0;
+      margin-right: 0;
       transform: translateX(0px)
     }
     .showSidebar .app-wrapper{
-      margin-left: 0;
+      margin-right: 0;
       transform: translateX(200px)
     }
   }

@@ -7,7 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 // JQ
 import $ from 'jquery'
 // element 按需引入
-import {Form, FormItem, Input, Icon, Button, Select, Option, Switch, Upload, Tooltip, Message, Loading, Dialog, MessageBox, Row, Col, Menu, Submenu, MenuItem, MenuItemGroup} from 'element-ui'
+import {Form, FormItem, Input, Icon, Button, Select, Option, Switch, Upload, Table, TableColumn, Tooltip, Message, Loading, Dialog, MessageBox, Row, Col, Menu, Submenu, MenuItem, MenuItemGroup} from 'element-ui'
 // axios
 import http from '@/assets/js/axios'
 
@@ -21,6 +21,8 @@ Vue.use(Switch)
 Vue.use(Upload)
 Vue.use(Option)
 Vue.use(Tooltip)
+Vue.use(Table)
+Vue.use(TableColumn)
 Vue.use(Loading.directive)
 Vue.use(Dialog)
 Vue.use(Row)

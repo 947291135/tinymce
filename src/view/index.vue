@@ -146,9 +146,6 @@ export default {
   components: {
     tinymce
   },
-  created () {
-    console.log(process.env.API_ROOT)
-  },
   mounted () {
     this.tinymceSHOW = false
     this.height()
