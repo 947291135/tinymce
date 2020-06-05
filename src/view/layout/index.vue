@@ -7,15 +7,19 @@
             <div class="navbar">
                 <i @click="sidebarClick" :class="['icon',sidebarshow?'el-icon-s-unfold':'el-icon-s-fold']"></i>
             </div>
-            <div class="roter-content">
-                <router-view/>
+            <div class="app-tabs">
+                <tabs></tabs>
             </div>
+            <!-- <div class="roter-content">
+                <router-view/>
+            </div> -->
         </div>
     </div>
 </template>
 
 <script>
 import sidebar from '@/components/sidebar'
+import tabs from '@/components/tabs'
 export default {
   data () {
     return {
@@ -28,29 +32,24 @@ export default {
     }
   },
   components: {
-    sidebar
+    sidebar,
+    tabs
   }
 }
 </script>
 
 <style scoped>
-.app-wrapper{
+  .app-wapper{
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     display: flex;
-    flex-direction: column;
     transition: all .3s
   }
-  .hideSidebar .app-wrapper{
-    margin-right: 64px;
-    transform: translateX(64px);
-  }
-  .showSidebar .app-wrapper{
-    margin-right: 200px;
-    transform: translateX(200px);
+  .hideSidebar .sidebar-container{
+    flex: 0 0 64px;
   }
   .app-wrapper .navbar{
     flex: 0 0 50px;
@@ -74,30 +73,22 @@ export default {
     position: relative;
   }
   .sidebar-container{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    flex: 0 0 200px;
     z-index: 1001;
     overflow: hidden;
     height: 100%;
     background-color: #304156;
+    transition: all .5s;
   }
-
-  @media screen and (max-width: 500px){
-    .sidebar-container{
-      transform: translateX(-65px)
-    }
-    .showSidebar .sidebar-container{
-      transform: translateX(0px)
-    }
-    .hideSidebar .app-wrapper{
-      margin-right: 0;
-      transform: translateX(0px)
-    }
-    .showSidebar .app-wrapper{
-      margin-right: 0;
-      transform: translateX(200px)
-    }
+  .app-wrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .app-tabs{
+    flex: 1 1 auto;
+  }
+  .app-tabs>>>.router-tab{
+    height: 100%;
   }
 </style>

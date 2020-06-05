@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'element-ui/lib/theme-chalk/index.css'
+// Vue-router-tab
+import RouterTab from 'vue-router-tab'
+import 'vue-router-tab/dist/lib/vue-router-tab.css'
 // JQ
 import $ from 'jquery'
 // element 按需引入
@@ -31,6 +34,7 @@ Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
 Vue.use(MenuItemGroup)
+Vue.use(RouterTab)
 Vue.config.productionTip = false
 Vue.prototype.$message = Message
 Vue.prototype.$loading = Loading.service

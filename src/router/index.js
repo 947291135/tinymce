@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/view/layout'
+// import { RouterTabRoutes } from 'vue-router-tab'
 Vue.use(Router)
 
 export default new Router({
@@ -14,8 +15,9 @@ export default new Router({
         icon: 'el-icon-menu'
       },
       children: [
+
         {
-          path: 'textarea',
+          path: '/textarea',
           component: () => import('@/view/index'),
           name: 'Textarea',
           meta: {

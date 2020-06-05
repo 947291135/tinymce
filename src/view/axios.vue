@@ -13,8 +13,11 @@
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
               <el-button type="primary" @click="xmlJSONP('http://www.api.com/jsonp.php')" >jsonp请求</el-button>
             </el-col>
-             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
               <el-button type="primary" @click="xml('http://www.api.com/CORS.php')">cors请求</el-button>
+            </el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="test('http://www.api.com/CORS.php')">test</el-button>
             </el-col>
 
           </el-form-item>
@@ -184,6 +187,16 @@ export default {
         /* eslint prefer-promise-reject-errors: "error" */
         reject(new Error('something bad happened'))
       })
+    },
+    test () {
+      this.ajax().then(res => {
+        return this.axios(res)
+      }).then(res => {
+        return this.axios(res)
+      })
+    },
+    ajax (test = '123') {
+      return this.$http.post('/api/proxy.php', {test: test})
     }
   }
 }
