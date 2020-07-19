@@ -146,9 +146,14 @@ export default {
   components: {
     tinymce
   },
+  created () {
+    this.height()
+  },
   mounted () {
     this.tinymceSHOW = false
-    this.height()
+    window.onresize = () => {
+      this.height()
+    }
     setTimeout(() => {
       this.tinymceSHOW = true
     }, 50)
@@ -157,7 +162,7 @@ export default {
     height () {
       this.$nextTick(() => {
         let tinymceDOM = this.$refs.tinymce.getBoundingClientRect()
-        this.tinymceHeight = tinymceDOM.height - 40
+        this.tinymceHeight = tinymceDOM.height - 150
       })
     },
     handleAvatarSuccess (res, file) {

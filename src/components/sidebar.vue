@@ -28,7 +28,6 @@ export default {
   },
   created () {
     this.munlist = this.$router.options.routes
-    console.log(this.munlist)
   },
   computed: {
     activeMenu () {

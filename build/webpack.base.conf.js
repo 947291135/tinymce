@@ -40,6 +40,9 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  externals: {
+    'AMap': 'AMap' // 高德地图配置
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

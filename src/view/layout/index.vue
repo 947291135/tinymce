@@ -39,6 +39,11 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 640px) {
+     .hideSidebar .sidebar-container{
+       margin-left: -64px;
+     }
+}
   .app-wapper{
     position: absolute;
     top: 0;
@@ -50,11 +55,13 @@ export default {
   }
   .hideSidebar .sidebar-container{
     flex: 0 0 64px;
+    transition: all .5s;
   }
   .app-wrapper .navbar{
+    position: sticky;
     flex: 0 0 50px;
     overflow: hidden;
-    position: relative;
+    /* position: relative; */
     background: #fff;
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
   }

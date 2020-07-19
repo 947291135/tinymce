@@ -52,6 +52,14 @@
               <el-button type="primary"  @click="JQuery('http://www.api.com/CORS.php')">cors请求</el-button>
             </el-col>
           </el-form-item>
+          <el-form-item label="定位">
+             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="JQuery('https://restapi.amap.com/v3/geocode/regeo?key=cf52e631671d42bbba5d69bf33e69437&location=113.88927,+22.50791')">jq请求</el-button>
+            </el-col>
+             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
+              <el-button type="primary" @click="axios('https://restapi.amap.com/v3/geocode/regeo?key=cf52e631671d42bbba5d69bf33e69437&location=113.88927,+22.50791')">axios请求</el-button>
+            </el-col>
+          </el-form-item>
         </el-form>
       </el-row>
     </div>

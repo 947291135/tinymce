@@ -71,22 +71,43 @@ export default new Router({
       ]
     },
     {
-      path: '/social',
+      path: '/element',
       component: Layout,
-      redirect: '/social/index',
+      redirect: '/element/index',
       meta: {
-        title: '聊天系统',
+        title: '组件测试',
         icon: 'el-icon-orange'
       },
       children: [
         {
           path: 'index',
           name: 'social',
-          component: () => import('@/view/upload.vue'),
+          component: () => import('@/view/element.vue'),
           meta: {
-            title: 'upload',
+            title: 'element',
             icon: 'el-icon-orange',
-            activeMenu: '/social'
+            activeMenu: '/element'
+          }
+        }
+      ]
+    },
+    {
+      path: '/map',
+      component: Layout,
+      redirect: '/map/index',
+      meta: {
+        title: '地图',
+        icon: 'el-icon-orange'
+      },
+      children: [
+        {
+          path: 'index',
+          name: 'mapIndex',
+          component: () => import('@/view/map.vue'),
+          meta: {
+            title: 'map',
+            icon: 'el-icon-orange',
+            activeMenu: '/map'
           }
         }
       ]

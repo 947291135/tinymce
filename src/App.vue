@@ -6,7 +6,14 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    window.addEventListener(
+      'touchstart',
+      () => {},
+      { passive: false }
+    )
+  }
 }
 </script>
 
