@@ -5,14 +5,19 @@
         </div>
         <div class="app-wrapper">
             <div class="navbar">
+              <div class="navbarTop">
                 <i @click="sidebarClick" :class="['icon',sidebarshow?'el-icon-s-unfold':'el-icon-s-fold']"></i>
+              </div>
+              <TagsView/>
             </div>
-            <div class="app-tabs">
+            <!-- <div class="app-tabs">
                 <tabs></tabs>
-            </div>
-            <!-- <div class="roter-content">
-                <router-view/>
             </div> -->
+            <div class="roter-content">
+              <transition name="fade-transform" mode="out-in">
+                <router-view/>
+              </transition>
+            </div>
         </div>
     </div>
 </template>
@@ -20,20 +25,28 @@
 <script>
 import sidebar from '@/components/sidebar'
 import tabs from '@/components/tabs'
+import TagsView from '@/view/layout/components/TagsView/index.vue'
 export default {
   data () {
     return {
-      sidebarshow: true
+      // sidebarshow: true
     }
   },
   methods: {
     sidebarClick () {
-      this.sidebarshow = !this.sidebarshow
+      // this.sidebarshow = !this.sidebarshow
+      this.$store.dispatch('app/sidebarOpen')
+    }
+  },
+  computed: {
+    sidebarshow () {
+      return !this.$store.getters.sidebar.oppen
     }
   },
   components: {
     sidebar,
-    tabs
+    tabs,
+    TagsView
   }
 }
 </script>
@@ -59,11 +72,14 @@ export default {
   }
   .app-wrapper .navbar{
     position: sticky;
-    flex: 0 0 50px;
-    overflow: hidden;
-    /* position: relative; */
+    flex: 0 0 80px;
+    z-index: 1000;
     background: #fff;
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  }
+  .app-wrapper .navbar .navbarTop{
+    width: 100%;
+    height: 50px;
   }
   .app-wrapper .navbar .icon{
     line-height: 46px;
@@ -98,4 +114,19 @@ export default {
   .app-tabs>>>.router-tab{
     height: 100%;
   }
+
+  .fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
 </style>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 // element 按需引入
-import {Card, Cascader, Form, FormItem, Input, Icon, Button, Select, Option, Switch, Upload, Table, TableColumn, Tooltip, Message, Loading, Dialog, MessageBox, Row, Col, Menu, Submenu, MenuItem, MenuItemGroup} from 'element-ui'
+import {scrollbar, Card, Cascader, Form, FormItem, Input, Icon, Button, Select, Option, Switch, Upload, Table, TableColumn, Tooltip, Message, Loading, Dialog, MessageBox, Row, Col, Menu, Submenu, MenuItem, MenuItemGroup} from 'element-ui'
+Vue.use(scrollbar)
 Vue.use(Card)
 Vue.use(Cascader)
 Vue.use(Form)

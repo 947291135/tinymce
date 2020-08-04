@@ -12,10 +12,10 @@ export default new Router({
       redirect: '/textarea',
       meta: {
         title: '首页',
-        icon: 'el-icon-menu'
+        icon: 'el-icon-menu',
+        affix: true
       },
       children: [
-
         {
           path: '/textarea',
           component: () => import('@/view/index'),
@@ -23,7 +23,8 @@ export default new Router({
           meta: {
             title: '首页',
             icon: 'el-icon-menu',
-            activeMenu: '/'
+            activeMenu: '/',
+            affix: true
           }
         }
       ]

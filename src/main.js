@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// vuex
+import store from './store'
 // Vue-router-tab
 import RouterTab from 'vue-router-tab'
 import 'vue-router-tab/dist/lib/vue-router-tab.css'
@@ -24,6 +26,7 @@ Vue.use(RouterTab)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -1,5 +1,5 @@
 <template>
-    <div class="element">
+    <div :class="['element',{oppen:sidebarshow}]">
       <el-form ref="form" label-width="80px" label-position="top">
         <el-form-item label="三级联动">
           <el-cascader
@@ -14,6 +14,7 @@
           <Tables />
         </el-form-item>
       </el-form>
+      {{this.$store.getters.test}}
     </div>
 </template>
 
@@ -30,6 +31,11 @@ export default {
       selectedOptions: null
     }
   },
+  computed: {
+    sidebarshow () {
+      return this.$store.getters.sidebar.oppen
+    }
+  },
   methods: {
     addressChange (arr) {
       console.log(CodeToText[arr[0]], CodeToText[arr[1]], CodeToText[arr[2]])
@@ -41,16 +47,15 @@ export default {
 <style scoped>
 .element{
     padding: 20px 20px 0 20px;
-    width: calc(100vw - 200px) ;
+    overflow: hidden;
     box-sizing: border-box;
+    transition: all .5s;
+    width: calc(100vw - 64px);
+}
+.element.oppen{
+  width: calc(100vw - 200px);
 }
 .element >>> .el-card__header{
   padding: 5px 10px;
-}
-@media screen and (max-width: 640px) {
-  .element{
-    width: 100vw;
-
-  }
 }
 </style>
