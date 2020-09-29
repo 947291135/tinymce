@@ -73,7 +73,7 @@ export default {
       // restapi.amap.com/v3/geocode/regeo?key=您的key&location=113.88927,+22.50791
       // https://lbs.amap.com/api/webservice/guide/api/georegeo/
       this.$http.post(`https://restapi.amap.com/v3/geocode/regeo?key=cf52e631671d42bbba5d69bf33e69437&location=${data.position.getLng() + ',' + data.position.getLat()}`).then(rel => {
-        if (rel.status == 1) {
+        if (rel.status === 1) {
           let adcode = rel.regeocode.addressComponent.adcode
           this.textinput = rel.regeocode.formatted_address
           if (!adcode) {

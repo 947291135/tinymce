@@ -29,6 +29,13 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  // const px2remLoader = {
+  //   loader: 'px2rem-loader',
+  //   options: {
+  //     remUnit: 75 // 设计稿的1/10 ，我们假设设计稿是750px
+  //   }
+  // }
+
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]

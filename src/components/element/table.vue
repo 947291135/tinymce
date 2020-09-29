@@ -1,8 +1,8 @@
 <template>
     <el-card class="box-card card">
         <div slot="header" class="clearfix">
-            <span>卡片名称</span>
-            <el-button style="float: right;" type="text">增加</el-button>
+            <span style="font-size: 14px;">可编辑表格</span>
+            <el-button style="float: right; padding: 3px 0" type="text">增加</el-button>
         </div>
         <div class="content">
             <el-table

@@ -10,20 +10,21 @@
               @change="addressChange">
           </el-cascader>
         </el-form-item>
-        <el-form-item label="可编辑表格"  label-width="120px">
-          <Tables />
-        </el-form-item>
       </el-form>
-      {{this.$store.getters.test}}
+      <Tables />
+      <Execl/>
+      <!-- <p class="test">{{this.$store.getters.test}}</p> -->
     </div>
 </template>
 
 <script>
 import { regionData, CodeToText } from 'element-china-area-data'
-import Tables from '@/components/table.vue'
+import Tables from '@/components/element/table.vue'
+import Execl from '@/components/element/execl.vue'
 export default {
   components: {
-    Tables
+    Tables,
+    Execl
   },
   data () {
     return {
@@ -46,16 +47,21 @@ export default {
 
 <style scoped>
 .element{
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0 20px;/*no*/
     overflow: hidden;
     box-sizing: border-box;
     transition: all .5s;
-    width: calc(100vw - 64px);
+    width: calc(100vw - 64px); /*no*/
 }
 .element.oppen{
-  width: calc(100vw - 200px);
+  width: calc(100vw - 200px); /*no*/
 }
 .element >>> .el-card__header{
-  padding: 5px 10px;
+  padding: 10px 10px;/*no*/
+}
+.test{
+  display: inline-block;
+  width: 150px;
+  font-size: 25px;
 }
 </style>

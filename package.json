@@ -12,18 +12,22 @@
   },
   "dependencies": {
     "@tinymce/tinymce-vue": "^3.0.1",
+    "@zxing/library": "^0.17.1",
     "axios": "^0.19.2",
     "babel-plugin-prismjs": "^2.0.0",
     "default-passive-events": "^1.0.10",
     "element-china-area-data": "^4.1.2",
     "element-ui": "^2.13.0",
     "jquery": "^3.4.1",
+    "lib-flexible": "^0.3.2",
+    "postcss-px2rem-exclude": "0.0.6",
     "prismjs": "^1.19.0",
     "tinymce": "^5.1.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-router-tab": "^1.0.0-alpha.4",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "xlsx": "^0.16.7"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -59,7 +63,9 @@
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "postcss-plugin-px2rem": "^0.8.1",
     "postcss-url": "^7.2.1",
+    "px2rem-loader": "^0.1.9",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",

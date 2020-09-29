@@ -17,6 +17,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import http from '@/assets/js/axios'
 // Added non-passive event listener to a scroll-blocking 'mousewheel' event. 警告报错消除
 // import 'default-passive-events'
+// 基于vue-cli配置手淘的lib-flexible + rem，实现移动端自适应
+import 'lib-flexible/flexible.js'
+
 Vue.prototype.$http = http
 // 阻止生产环境提示
 Vue.config.productionTip = false

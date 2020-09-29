@@ -54,7 +54,7 @@ export default {
 <style scoped>
 @media screen and (max-width: 640px) {
      .hideSidebar .sidebar-container{
-       margin-left: -64px;
+       margin-left: -64px;/*no*/
      }
 }
   .app-wapper{
@@ -67,36 +67,38 @@ export default {
     transition: all .3s
   }
   .hideSidebar .sidebar-container{
-    flex: 0 0 64px;
+    flex: 0 0 64px;/*no*/
     transition: all .5s;
   }
   .app-wrapper .navbar{
     position: sticky;
-    flex: 0 0 80px;
+    flex: 0 0 80px;/*no*/
     z-index: 1000;
     background: #fff;
-    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);/*no*/
   }
   .app-wrapper .navbar .navbarTop{
     width: 100%;
-    height: 50px;
+    height: 50px;/*no*/
   }
   .app-wrapper .navbar .icon{
-    line-height: 46px;
+    line-height: 46px;/*no*/
     height: 100%;
     float: left;
-    font-size: 21px;
+    font-size: 21px;/*no*/
     cursor: pointer;
     transition: background .3s;
-    padding: 0px 15px;
+    padding: 0px 15px;/*no*/
     -webkit-tap-highlight-color: transparent;
   }
   .app-wrapper .roter-content{
+    overflow-y: auto;
+    overflow-x: hidden;
     flex: 1;
     position: relative;
   }
   .sidebar-container{
-    flex: 0 0 200px;
+    flex: 0 0 200px;/*no*/
     z-index: 1001;
     overflow: hidden;
     height: 100%;
@@ -122,11 +124,11 @@ export default {
 
 .fade-transform-enter {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-30px);/*no*/
 }
 
 .fade-transform-leave-to {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(30px);/*no*/
 }
 </style>

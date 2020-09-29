@@ -14,6 +14,6 @@ export default {
 <style scoped>
 .tabs{
     position: relative;
-    height:  calc(100vh - 50px);;
+    height:  calc(100vh - 50px);
 }
 </style>

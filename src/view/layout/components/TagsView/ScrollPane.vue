@@ -75,9 +75,9 @@ export default {
   width: 100%;
 }
 .scroll-container>>>.el-scrollbar__bar {
-  bottom: 0px;
+  bottom: 0px;/* no*/
 }
 .scroll-container>>>.el-scrollbar__wrap {
-  height: 49px;
+  height: 49px;/* no*/
 }
 </style>

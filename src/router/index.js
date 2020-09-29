@@ -98,7 +98,7 @@ export default new Router({
       redirect: '/map/index',
       meta: {
         title: '地图',
-        icon: 'el-icon-orange'
+        icon: 'el-icon-map-location'
       },
       children: [
         {
@@ -107,8 +107,29 @@ export default new Router({
           component: () => import('@/view/map.vue'),
           meta: {
             title: 'map',
-            icon: 'el-icon-orange',
+            icon: 'el-icon-map-location',
             activeMenu: '/map'
+          }
+        }
+      ]
+    },
+    {
+      path: '/code',
+      component: Layout,
+      redirect: '/code/index',
+      meta: {
+        title: '二维码扫描',
+        icon: 'el-icon-full-screen'
+      },
+      children: [
+        {
+          path: 'index',
+          name: 'codeIndex',
+          component: () => import('@/view/codeTow.vue'),
+          meta: {
+            title: 'code',
+            icon: 'el-icon-full-screen',
+            activeMenu: '/code'
           }
         }
       ]
