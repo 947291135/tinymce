@@ -21,7 +21,7 @@
     "jquery": "^3.4.1",
     "lib-flexible": "^0.3.2",
     "postcss-px2rem-exclude": "0.0.6",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.21.0",
     "tinymce": "^5.1.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
