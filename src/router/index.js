@@ -133,6 +133,48 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/md',
+      component: Layout,
+      redirect: '/md/index',
+      meta: {
+        title: 'MD文件',
+        icon: 'el-icon-s-order'
+      },
+      children: [
+        {
+          path: 'index',
+          name: 'mdIndex',
+          component: () => import('@/view/md.vue'),
+          meta: {
+            title: 'md',
+            icon: 'el-icon-full-screen',
+            activeMenu: '/md'
+          }
+        }
+      ]
+    },
+    {
+      path: '/world',
+      component: Layout,
+      redirect: '/world/index',
+      meta: {
+        title: 'world文件',
+        icon: 'el-icon-download'
+      },
+      children: [
+        {
+          path: 'index',
+          name: 'worldIndex',
+          component: () => import('@/view/world2.vue'),
+          meta: {
+            title: 'world',
+            icon: 'el-icon-download',
+            activeMenu: '/world'
+          }
+        }
+      ]
     }
   ]
 })

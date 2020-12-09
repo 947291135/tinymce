@@ -51,10 +51,12 @@ export default {
     overflow: hidden;
     box-sizing: border-box;
     transition: all .5s;
-    width: calc(100vw - 64px); /*no*/
+    width: 100vw; /*no*/
+    min-width:250px;/*no*/
 }
 .element.oppen{
   width: calc(100vw - 200px); /*no*/
+  min-width:250px;/*no*/
 }
 .element >>> .el-card__header{
   padding: 10px 10px;/*no*/

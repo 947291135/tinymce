@@ -161,8 +161,9 @@ export default {
   methods: {
     height () {
       this.$nextTick(() => {
-        let tinymceDOM = this.$refs.tinymce.getBoundingClientRect()
-        this.tinymceHeight = tinymceDOM.height - 150
+        let tinymceDOM = this.$refs.tinymce && this.$refs.tinymce.getBoundingClientRect()
+        console.log(tinymceDOM.height)
+        this.tinymceHeight = tinymceDOM.height - 50
       })
     },
     handleAvatarSuccess (res, file) {
@@ -201,6 +202,9 @@ export default {
         }
       })
     }
+  },
+  beforeDestroy () {
+    window.onresize = null
   }
 }
 </script>

@@ -130,9 +130,6 @@ export default {
       this.$nextTick(() => {
         Prism.highlightAll()
       })
-    },
-    height () {
-      console.log(this.height)
     }
   }
 }
