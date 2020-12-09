@@ -64,6 +64,7 @@ export default {
     }
   },
   mounted () {
+    console.log('test')
     setTimeout(() => {
       this.GetiframeHeight()
     }, 500)
