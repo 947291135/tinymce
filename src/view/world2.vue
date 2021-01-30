@@ -86,10 +86,11 @@ export default {
         ...this.info,
         Table: this.Table
       }
-      this.exportDocx('../../static/world/CCSISZ-01.docx', data, `脚本.docx`)
+      this.exportDocx('/static/world/CCSISZ-01.docx', data, `脚本.docx`)
     },
     exportDocx (tempDocxPath, data, fileName) {
       // 读取并获得模板文件的二进制内容
+      console.log(tempDocxPath)
       JSZipUtils.getBinaryContent(tempDocxPath, (error, content) => {
         if (error) {
           throw error
