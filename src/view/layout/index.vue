@@ -64,7 +64,8 @@ export default {
     bottom: 0;
     right: 0;
     display: flex;
-    transition: all .3s
+    transition: all .3s;
+    overflow: hidden;
   }
   .hideSidebar .sidebar-container{
     flex: 0 0 64px;/*no*/
@@ -109,6 +110,7 @@ export default {
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
   .app-tabs{
     flex: 1 1 auto;

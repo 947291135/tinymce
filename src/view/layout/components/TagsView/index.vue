@@ -1,20 +1,22 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
     <scroll-pane ref="scrollPane" class="tags-view-wrapper">
-      <router-link
-        v-for="tag in visitedViews"
-        ref="tag"
-        :key="tag.path"
-        :class="isActive(tag)?'active':''"
-        :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
-        tag="span"
-        class="tags-view-item"
-        @click.middle.native="closeSelectedTag(tag)"
-        @contextmenu.prevent.native="openMenu(tag,$event)"
-      >
-        {{ tag.title }}
-        <span v-if="!tag.meta.affix" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
-      </router-link>
+      <transition-group name="tags" mode="out-in">
+        <router-link
+          v-for="tag in visitedViews"
+          ref="tag"
+          :key="tag.path"
+          :class="isActive(tag)?'active':''"
+          :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
+          tag="span"
+          class="tags-view-item"
+          @click.middle.native="closeSelectedTag(tag)"
+          @contextmenu.prevent.native="openMenu(tag,$event)"
+        >
+          {{ tag.title }}
+          <span v-if="!tag.meta.affix" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
+        </router-link>
+      </transition-group>
     </scroll-pane>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <!-- <li @click="refreshSelectedTag(selectedTag)">刷新页面</li> -->
@@ -193,11 +195,19 @@ export default {
 </script>
 
 <style scoped>
+.tags-enter-active, .tags-leave-active {
+  transition: all .5s;
+}
+.tags-enter, .tags-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(50px);
+}
 .tags-view-container {
   height: 34px;/* no*/
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #d8dce5;
+  overflow: hidden;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);/*no*/
 }
 .tags-view-container .tags-view-wrapper .tags-view-item{
