@@ -12,9 +12,9 @@
         <div class="content">
           <el-table ref="table" :data="list" v-loading="loadingTable" element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)" :row-style="{height:'20px'}" :header-cell-style="{background:'#eef1f6',color:'#606266'}"
                 :cell-style="{padding:'0px'}" border style="width: 100%" height="400">
-                <el-table-column align="center" fixed prop="reportNumber" label="报告编号" width="130" v-if="TableColumn.reportNumber">
+                <el-table-column align="center" prop="reportNumber" label="报告编号" width="130" v-if="TableColumn.reportNumber">
                 </el-table-column>
-                <el-table-column align="center" fixed prop="controlWorkNumber" label="工作控制号" width="130" v-if="TableColumn.controlWorkNumber">
+                <el-table-column align="center" prop="controlWorkNumber" label="工作控制号" width="130" v-if="TableColumn.controlWorkNumber">
                 </el-table-column>
                 <!-- filter-method="formatteTime" -->
                 <el-table-column align="center" prop="sheetWorkFlowDt" label="申请日期" min-width="160" v-if="TableColumn.sheetWorkFlowDt">
@@ -148,11 +148,6 @@
                 <el-table-column prop="subcontractorInfo" label="外协单位" header-align="center" width="150" v-if="TableColumn.subcontractorInfo">
                 </el-table-column>
                 <el-table-column prop="sheetWorkFlowId" align="center" label="系统流水号" width="100" v-if="TableColumn.sheetWorkFlowId">
-                </el-table-column>
-                <el-table-column fixed="right" label="操作"  align="center" min-width="120">
-                    <template slot-scope="scope">
-                        <el-button type="text" size="small" @click="generateWorkflow(scope.row.sheetWorkFlowId)">生成工作流程单</el-button>
-                    </template>
                 </el-table-column>
             </el-table>
             <execlSelectDialog :visible.sync="SelectVisible" :list="list" v-model="TableColumn"/>
@@ -364,10 +359,10 @@ export default {
           actualAmount: '8000000',
           businessDepartment: 3,
           contractMoney: '19900',
-          contractName: '保护区船艇维修、保养报价评估审核服务合同',
-          contractNumber: 'CCSISZ20006',
-          contractStaple: '一、评估审核服务内容↵1、对保护区船艇维修、保养项目费用进行船舶修理费用的报价审核；↵2、包括进行实船查验和造价咨询审核服务，按实事求是出评估报告。',
-          controlWorkNumber: 'SZJC0220016',
+          contractName: '保护区船艇维修',
+          contractNumber: 'CCSIStest',
+          contractStaple: 'teste',
+          controlWorkNumber: 'CCSIStest',
           endActualContent: '测试vessels05',
           endActualTime: '2020-05-30',
           entrustedEngineerName: '测试 委托方',
@@ -386,10 +381,10 @@ export default {
           orderNumber: '',
           orderStaple: '',
           orderType: '',
-          projectCharge: '金鑫',
+          projectCharge: '撒旦撒',
           projectCheckTime: '2020-05-30',
           projectContent: '测试vessels05',
-          projectMember: '王胜球、张敏、王鑫、金鑫、',
+          projectMember: '撒旦撒',
           projectSite: '测试vessels05',
           projectStartDt: '2020-05-01',
           projectType: 'JC检测',
@@ -402,16 +397,16 @@ export default {
           subcontractReason: '',
           subcontractorInfo: '',
           subcontractorMoney: '',
-          subcontractorName: '深圳市信科莱检测技术有限公司、'
+          subcontractorName: '深圳市test有限公司'
         },
         {
           actualAmount: '8000000',
           businessDepartment: 3,
           contractMoney: '19900',
-          contractName: '保护区船艇维修、保养报价评估审核服务合同',
-          contractNumber: 'CCSISZ20006',
-          contractStaple: '一、评估审核服务内容↵1、对保护区船艇维修、保养项目费用进行船舶修理费用的报价审核；↵2、包括进行实船查验和造价咨询审核服务，按实事求是出评估报告。',
-          controlWorkNumber: 'SZJC0220016',
+          contractName: '保护区船艇维修',
+          contractNumber: 'CCSIStest',
+          contractStaple: 'teste',
+          controlWorkNumber: 'CCSIStest',
           endActualContent: '测试vessels05',
           endActualTime: '2020-05-30',
           entrustedEngineerName: '测试 委托方',
@@ -430,10 +425,10 @@ export default {
           orderNumber: '',
           orderStaple: '',
           orderType: '',
-          projectCharge: '金鑫',
+          projectCharge: '撒旦撒',
           projectCheckTime: '2020-05-30',
           projectContent: '测试vessels05',
-          projectMember: '王胜球、张敏、王鑫、金鑫、',
+          projectMember: '撒旦撒',
           projectSite: '测试vessels05',
           projectStartDt: '2020-05-01',
           projectType: 'JC检测',
@@ -446,16 +441,16 @@ export default {
           subcontractReason: '',
           subcontractorInfo: '',
           subcontractorMoney: '',
-          subcontractorName: '深圳市信科莱检测技术有限公司、'
+          subcontractorName: '深圳市test有限公司'
         },
         {
           actualAmount: '8000000',
           businessDepartment: 3,
           contractMoney: '19900',
-          contractName: '保护区船艇维修、保养报价评估审核服务合同',
-          contractNumber: 'CCSISZ20006',
-          contractStaple: '一、评估审核服务内容↵1、对保护区船艇维修、保养项目费用进行船舶修理费用的报价审核；↵2、包括进行实船查验和造价咨询审核服务，按实事求是出评估报告。',
-          controlWorkNumber: 'SZJC0220016',
+          contractName: '保护区船艇维修',
+          contractNumber: 'CCSIStest',
+          contractStaple: 'teste',
+          controlWorkNumber: 'CCSIStest',
           endActualContent: '测试vessels05',
           endActualTime: '2020-05-30',
           entrustedEngineerName: '测试 委托方',
@@ -474,10 +469,10 @@ export default {
           orderNumber: '',
           orderStaple: '',
           orderType: '',
-          projectCharge: '金鑫',
+          projectCharge: '撒旦撒',
           projectCheckTime: '2020-05-30',
           projectContent: '测试vessels05',
-          projectMember: '王胜球、张敏、王鑫、金鑫、',
+          projectMember: '撒旦撒',
           projectSite: '测试vessels05',
           projectStartDt: '2020-05-01',
           projectType: 'JC检测',
@@ -490,16 +485,16 @@ export default {
           subcontractReason: '',
           subcontractorInfo: '',
           subcontractorMoney: '',
-          subcontractorName: '深圳市信科莱检测技术有限公司、'
+          subcontractorName: '深圳市test有限公司'
         },
         {
           actualAmount: '8000000',
           businessDepartment: 3,
           contractMoney: '19900',
-          contractName: '保护区船艇维修、保养报价评估审核服务合同',
-          contractNumber: 'CCSISZ20006',
-          contractStaple: '一、评估审核服务内容↵1、对保护区船艇维修、保养项目费用进行船舶修理费用的报价审核；↵2、包括进行实船查验和造价咨询审核服务，按实事求是出评估报告。',
-          controlWorkNumber: 'SZJC0220016',
+          contractName: '保护区船艇维修',
+          contractNumber: 'CCSIStest',
+          contractStaple: 'teste',
+          controlWorkNumber: 'CCSIStest',
           endActualContent: '测试vessels05',
           endActualTime: '2020-05-30',
           entrustedEngineerName: '测试 委托方',
@@ -518,10 +513,10 @@ export default {
           orderNumber: '',
           orderStaple: '',
           orderType: '',
-          projectCharge: '金鑫',
+          projectCharge: '撒旦撒',
           projectCheckTime: '2020-05-30',
           projectContent: '测试vessels05',
-          projectMember: '王胜球、张敏、王鑫、金鑫、',
+          projectMember: '撒旦撒',
           projectSite: '测试vessels05',
           projectStartDt: '2020-05-01',
           projectType: 'JC检测',
@@ -534,7 +529,7 @@ export default {
           subcontractReason: '',
           subcontractorInfo: '',
           subcontractorMoney: '',
-          subcontractorName: '深圳市信科莱检测技术有限公司、'
+          subcontractorName: '深圳市test有限公司'
         }
       ]
     }

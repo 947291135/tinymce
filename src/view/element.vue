@@ -51,7 +51,7 @@ export default {
     overflow: hidden;
     box-sizing: border-box;
     transition: all .5s;
-    width: 100vw; /*no*/
+    width: 100%; /*no*/
     min-width:250px;/*no*/
 }
 .element.oppen{

@@ -54,8 +54,8 @@
                         show-overflow-tooltip
                         min-width="50">
                         <template slot-scope="scope">
-                            <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                            <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                            <el-input v-if="scope.row.isriskP" v-model="scope.row.riskP" @focus="focusEvent(scope.row,'riskP')" @blur="blurEvent(scope.row,'riskP')" v-focus></el-input>
+                            <p @click="cellClick(scope.row,'riskP')" v-else>{{scope.row.riskP}}</p>
                         </template>
                     </el-table-column>
                     <el-table-column
@@ -65,8 +65,8 @@
                         show-overflow-tooltip
                         min-width="50">
                         <template slot-scope="scope">
-                            <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                            <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                            <el-input v-if="scope.row.isriskR" v-model="scope.row.riskR" @focus="focusEvent(scope.row,'riskR')" @blur="blurEvent(scope.row,'riskR')" v-focus></el-input>
+                            <p @click="cellClick(scope.row,'riskR')" v-else>{{scope.row.riskR}}</p>
                         </template>
                     </el-table-column>
                 </el-table-column>
@@ -77,8 +77,8 @@
                 show-overflow-tooltip
                 min-width="180">
                     <template slot-scope="scope">
-                        <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                        <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                        <el-input v-if="scope.row.ismeasures" v-model="scope.row.measures" @focus="focusEvent(scope.row,'measures')" @blur="blurEvent(scope.row,'measures')" v-focus></el-input>
+                        <p @click="cellClick(scope.row,'measures')" v-else>{{scope.row.measures}}</p>
                     </template>
                 </el-table-column>
                 <el-table-column
@@ -88,8 +88,8 @@
                 show-overflow-tooltip
                 min-width="120">
                     <template slot-scope="scope">
-                        <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                        <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                        <el-input v-if="scope.row.ischarge" v-model="scope.row.charge" @focus="focusEvent(scope.row,'charge')" @blur="blurEvent(scope.row,'charge')" v-focus></el-input>
+                        <p @click="cellClick(scope.row,'charge')" v-else>{{scope.row.charge}}</p>
                     </template>
                 </el-table-column>
                 <el-table-column label="残余风险" show-overflow-tooltip align="center">
@@ -100,8 +100,8 @@
                         show-overflow-tooltip
                         min-width="50">
                         <template slot-scope="scope">
-                            <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                            <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                            <el-input v-if="scope.row.isremnantS" v-model="scope.row.remnantS" @focus="focusEvent(scope.row,'remnantS')" @blur="blurEvent(scope.row,'remnantS')" v-focus></el-input>
+                            <p @click="cellClick(scope.row,'remnantS')" v-else>{{scope.row.remnantS}}</p>
                         </template>
                     </el-table-column>
                     <el-table-column
@@ -111,8 +111,8 @@
                         show-overflow-tooltip
                         min-width="50">
                         <template slot-scope="scope">
-                            <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                            <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                            <el-input v-if="scope.row.isremnantP" v-model="scope.row.remnantP" @focus="focusEvent(scope.row,'remnantP')" @blur="blurEvent(scope.row,'remnantP')" v-focus></el-input>
+                            <p @click="cellClick(scope.row,'remnantP')" v-else>{{scope.row.remnantP}}</p>
                         </template>
                     </el-table-column>
                     <el-table-column
@@ -122,8 +122,8 @@
                         show-overflow-tooltip
                         min-width="50">
                         <template slot-scope="scope">
-                            <el-input v-if="scope.row.isriskS" v-model="scope.row.riskS" @focus="focusEvent(scope.row,'riskS')" @blur="blurEvent(scope.row,'riskS')" v-focus></el-input>
-                            <p @click="cellClick(scope.row,'riskS')" v-else>{{scope.row.riskS}}</p>
+                            <el-input v-if="scope.row.isremnantR" v-model="scope.row.remnantR" @focus="focusEvent(scope.row,'remnantR')" @blur="blurEvent(scope.row,'remnantR')" v-focus></el-input>
+                            <p @click="cellClick(scope.row,'remnantR')" v-else>{{scope.row.remnantR}}</p>
                         </template>
                     </el-table-column>
                 </el-table-column>

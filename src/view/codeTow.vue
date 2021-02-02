@@ -19,7 +19,7 @@ export default {
     }
   },
   created () {
-    // this.openScan()
+    this.openScan()
   },
   methods: {
     openScan () {

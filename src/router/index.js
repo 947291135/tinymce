@@ -125,7 +125,7 @@ export default new Router({
         {
           path: 'index',
           name: 'codeIndex',
-          component: () => import('@/view/codeTow.vue'),
+          component: () => import('@/view/code.vue'),
           meta: {
             title: 'code',
             icon: 'el-icon-full-screen',
