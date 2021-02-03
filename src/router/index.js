@@ -5,6 +5,7 @@ import Layout from '@/view/layout'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -167,7 +168,7 @@ export default new Router({
         {
           path: 'index',
           name: 'worldIndex',
-          component: () => import('@/view/world2.vue'),
+          component: () => import('@/view/world.vue'),
           meta: {
             title: 'world',
             icon: 'el-icon-download',

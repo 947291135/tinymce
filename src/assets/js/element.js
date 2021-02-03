@@ -1,6 +1,10 @@
 import Vue from 'vue'
 // element 按需引入
-import {ButtonGroup, Divider, Popover, Transfer, Checkbox, CheckboxButton, CheckboxGroup, scrollbar, Card, Cascader, Form, FormItem, Input, Icon, Button, Select, Option, Switch, Upload, Table, TableColumn, Tooltip, Message, Loading, Dialog, MessageBox, Row, Col, Menu, Submenu, MenuItem, MenuItemGroup} from 'element-ui'
+import {Radio, RadioGroup, RadioButton, DatePicker, ButtonGroup, Divider, Popover, Transfer, Checkbox, CheckboxButton, CheckboxGroup, scrollbar, Card, Cascader, Form, FormItem, Input, Icon, Button, Select, Option, Switch, Upload, Table, TableColumn, Tooltip, Message, Loading, Dialog, MessageBox, Row, Col, Menu, Submenu, MenuItem, MenuItemGroup} from 'element-ui'
+Vue.use(Radio)
+Vue.use(RadioGroup)
+Vue.use(RadioButton)
+Vue.use(DatePicker)
 Vue.use(ButtonGroup)
 Vue.use(Divider)
 Vue.use(Popover)

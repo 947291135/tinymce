@@ -18,24 +18,30 @@ export default {
   data () {
     return {
       BrowserQRCodeReader,
+      navigator: null,
       // 当前手机录像设备列表
       exArray: [],
-      codeReader: null
+      codeReader: null,
+      // 定时器
+      time: null
     }
   },
   created () {
     navigator.mediaDevices.enumerateDevices()
       .then((devices) => {
+        let mediaOpts = {}
         devices.forEach((device) => {
           if (device.kind === 'videoinput') {
             this.exArray.push(device.deviceId)
           }
         })
-        var mediaOpts = {
-          width: { min: 1920 },
-          height: { min: 1080 }
+        if (this.$isMobile()) {
+          mediaOpts = {
+            width: { min: 1920 },
+            height: { min: 1080 }
+          }
+          mediaOpts.facingMode = { exact: 'environment' }
         }
-        mediaOpts.facingMode = { exact: 'environment' }
         this.getUserMedia(mediaOpts)
       }).catch(err => {
         alert(err)
@@ -51,6 +57,7 @@ export default {
           // audio: true,
           video: constraints
         }, (stream) => {
+          this.navigator = stream
           var video = document.querySelector('video')
           let src
           try {
@@ -62,7 +69,7 @@ export default {
           video.onloadedmetadata = function (e) {
             video.play()
           }
-          setTimeout(() => {
+          this.time = setTimeout(() => {
             this.screenShot()
           }, 2000)
         }, (err) => {
@@ -93,7 +100,7 @@ export default {
         alert(res)
       }).catch(err => {
         if (err) {
-          setTimeout(() => {
+          this.time = setTimeout(() => {
             this.screenShot()
           }, 2000)
         }
@@ -110,6 +117,15 @@ export default {
     //       this.screenShot()
     //     }
     //   }
+    }
+  },
+  destroyed () {
+    if (this.time) {
+      clearTimeout(this.time)
+      this.time = null
+    }
+    if (this.navigator) {
+      this.navigator.getTracks()[0].stop()
     }
   }
 }
