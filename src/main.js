@@ -13,6 +13,8 @@ import $ from 'jquery'
 // element 按需引入
 import '@/assets/js/element'
 import 'element-ui/lib/theme-chalk/index.css'
+// 大数据展示UI库按需引入
+import '@/assets/js/DataView'
 // axios
 import http from '@/assets/js/axios'
 // Added non-passive event listener to a scroll-blocking 'mousewheel' event. 警告报错消除

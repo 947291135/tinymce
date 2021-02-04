@@ -10,21 +10,44 @@ export default new Router({
     {
       path: '/',
       component: Layout,
+      redirect: '/Main',
+      meta: {
+        title: '主页',
+        icon: 'el-icon-s-grid',
+        affix: true
+      },
+      children: [
+        {
+          path: '/Main',
+          component: () => import('@/view/Main'),
+          name: 'Main',
+          meta: {
+            title: '主页',
+            icon: 'el-icon-menu',
+            activeMenu: '/',
+            affix: true
+          }
+        }
+      ]
+    },
+    {
+      path: '/form',
+      component: Layout,
       redirect: '/textarea',
       meta: {
-        title: '首页',
-        icon: 'el-icon-menu',
+        title: '表单',
+        icon: 'el-icon-s-order',
         affix: true
       },
       children: [
         {
           path: '/textarea',
-          component: () => import('@/view/index'),
+          component: () => import('@/view/form'),
           name: 'Textarea',
           meta: {
-            title: '首页',
+            title: '表单',
             icon: 'el-icon-menu',
-            activeMenu: '/',
+            activeMenu: '/form',
             affix: true
           }
         }

@@ -11,12 +11,14 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@jiaminghi/data-view": "^2.10.0",
     "@tinymce/tinymce-vue": "^3.0.1",
     "@zxing/library": "^0.17.1",
     "axios": "^0.19.2",
     "babel-plugin-prismjs": "^2.0.0",
     "default-passive-events": "^1.0.10",
     "docxtemplater": "^3.19.7",
+    "echarts": "^5.0.1",
     "element-china-area-data": "^4.1.2",
     "element-ui": "^2.13.0",
     "file-saver": "^2.0.5",
