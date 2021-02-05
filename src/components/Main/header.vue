@@ -76,7 +76,7 @@ export default {
     justify-content: space-between;
 }
 .Header>.left,.Header>.right{
-    flex:1;
+    width: 45%;
     display: flex;
     align-items: stretch;
     flex-direction: column;

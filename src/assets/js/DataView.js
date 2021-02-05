@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import { decoration3, decoration6, decoration10, decoration8, borderBox12, loading, fullScreenContainer } from '@jiaminghi/data-view'
+import { digitalFlop, decoration3, decoration6, decoration10, decoration8, borderBox12, loading, fullScreenContainer } from '@jiaminghi/data-view'
+Vue.use(digitalFlop)
 Vue.use(decoration10)
 Vue.use(decoration8)
 Vue.use(decoration6)

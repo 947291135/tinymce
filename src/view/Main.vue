@@ -11,12 +11,12 @@
                             <data-statistics-one />
                         </dv-border-box-12>
                     </el-col>
-                    <el-col :span="5">
+                    <el-col :span="6">
                         <dv-border-box-12 class="item">
                             <div class="test">地图数据</div>
                         </dv-border-box-12>
                     </el-col>
-                    <el-col :span="8">
+                    <el-col :span="6">
                         <dv-border-box-12 class="item">
                             <div class="test">任务目标</div>
                         </dv-border-box-12>
@@ -26,7 +26,7 @@
                             <div class="test">任务分析</div>
                         </dv-border-box-12>
                     </el-col>
-                    <el-col :span="3">
+                    <el-col :span="4">
                         <dv-border-box-12 class="item">
                             <div class="test">数据排行</div>
                         </dv-border-box-12>
@@ -71,12 +71,11 @@ export default {
     /* background-position:; */
     background-size: contain;
     position: absolute;
-    min-width: 1400px; /*no*/
+    min-width: 1700px; /*no*/
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
