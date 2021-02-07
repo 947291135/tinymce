@@ -17,9 +17,7 @@
                         </dv-border-box-12>
                     </el-col>
                     <el-col :span="7">
-                        <dv-border-box-12 class="item">
-                            <div class="test">任务目标</div>
-                        </dv-border-box-12>
+                        <TaskObjectivesTherr/>
                     </el-col>
                     <el-col :span="5">
                         <dv-border-box-12 class="item">
@@ -55,6 +53,7 @@
 import Header from '@/components/Main/header.vue'
 import DataStatisticsOne from '@/components/Main/DataStatisticsOne.vue'
 import MapEchartsTow from '@/components/Main/MapEchartsTow.vue'
+import TaskObjectivesTherr from '@/components/Main/TaskObjectivesTherr.vue'
 export default {
   data () {
     return {
@@ -164,8 +163,8 @@ export default {
       this.info = {
         orderPrice: this.sum(1000, 90000),
         contractPrice: this.sum(1000, 90000),
-        orderNumber: this.sum(1000, 90000),
-        contractNumber: this.sum(1000, 90000),
+        orderNumber: this.sum(1, 999),
+        contractNumber: this.sum(1, 999),
         typeDataList: [
           {value: this.sum(0, 999), name: '监理'},
           {value: this.sum(0, 999), name: '检测'},
@@ -276,7 +275,8 @@ export default {
   components: {
     Header,
     DataStatisticsOne,
-    MapEchartsTow
+    MapEchartsTow,
+    TaskObjectivesTherr
   }
 }
 </script>
@@ -291,6 +291,7 @@ export default {
     background-size: cover;
     position: absolute;
     min-width: 1700px; /*no*/
+    min-height: 1200px;/*no*/
     left: 0;
     top: 0;
     bottom: 0;
