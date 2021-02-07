@@ -1,6 +1,6 @@
 <template>
     <div class="DataStatisticsOne">
-      <Title title='任务通过率'>
+      <Title title='业务类型通过率'>
           <template slot="decoration"><dv-decoration-3 style="width:100%;height:100%;" /></template>
       </Title>
       <div class="charts" ref="charts"></div>
@@ -8,31 +8,29 @@
         <div class="top">
           <div class="number_item">
             <span class="number_num">
-              <i>￥</i>
-              <dv-digital-flop :config="orderNumber"/>
+              <dv-digital-flop :config="orderPrice" class="number_flop"/>
             </span>
-            <span class="number_text">订单收益金额</span>
+            <span class="number_text">订单金额(￥)</span>
           </div>
           <div class="number_item">
             <span class="number_num">
-              <i>￥</i>
-              <dv-digital-flop :config="contractNumber"/>
+              <dv-digital-flop :config="contractPrice" class="number_flop"/>
             </span>
-            <span class="number_text">合同收益金额</span>
+            <span class="number_text">合同金额(￥)</span>
           </div>
         </div>
         <div class="bottom">
           <div class="number_item">
             <span class="number_num">
-              <dv-digital-flop :config="contractNumber"/>
+              <dv-digital-flop :config="orderNumber"/>
             </span>
-            <span class="number_text">订单数量</span>
+            <span class="number_text">订单数量(个)</span>
           </div>
           <div class="number_item">
             <span class="number_num">
               <dv-digital-flop :config="contractNumber"/>
             </span>
-            <span class="number_text">合同数量</span>
+            <span class="number_text">合同数量(份)</span>
           </div>
         </div>
       </div>
@@ -49,13 +47,11 @@ import {
   PieChart
 } from 'echarts/charts'
 import {
-  TitleComponent,
   TooltipComponent,
-  GridComponent,
   LegendComponent
 } from 'echarts/components'
 echarts.use(
-  [TitleComponent, TooltipComponent, GridComponent, PieChart, CanvasRenderer, LegendComponent]
+  [TooltipComponent, PieChart, CanvasRenderer, LegendComponent]
 )
 export default {
   data () {
@@ -91,9 +87,9 @@ export default {
             color: '#fff',
             backgroundColor: 'transparent'
           },
-          radius: '100%',
+          radius: '70%',
           center: ['50%', '50%'],
-          top: 10,
+          top: 0,
           bottom: 50,
           labelLine: {
             length: 0,
@@ -131,23 +127,16 @@ export default {
     }
   },
   watch: {
-    info: {
-
+    info (newVal) {
+      this.$nextTick(() => {
+        this.getData()
+      })
     }
   },
   methods: {
     getData () {
-      setTimeout(() => {
-        this.option.series.data = [
-          {value: 10, name: '监理'},
-          {value: 5, name: '检测'},
-          {value: 80, name: '评估'},
-          {value: 18, name: '检验'},
-          {value: 150, name: '检修'},
-          {value: 50, name: '咨询'}
-        ]
-        this.charts.setOption(this.option)
-      }, 1000)
+      this.option.series.data = this.info.typeDataList
+      this.charts.setOption(this.option)
       // 使用刚指定的配置项和数据显示图表。
     },
     formatter (number) {
@@ -161,14 +150,54 @@ export default {
 
   },
   computed: {
+    orderPrice () {
+      let obj = {
+        number: [0],
+        content: '{nt}',
+        toFixed: 2
+      }
+      if (this.info.orderPrice) {
+        if (this.info.orderPrice >= 10000) {
+          obj.number = [Number((this.info.orderPrice / 10000).toFixed(2))]
+          obj.content = '{nt}万'
+        } else {
+          obj.number = [Number(this.info.orderPrice)]
+          obj.toFixed = 0
+        }
+      }
+      return obj
+    },
+    contractPrice () {
+      let obj = {
+        number: [0],
+        content: '{nt}',
+        toFixed: 2
+      }
+      if (this.info.contractPrice) {
+        if (this.info.contractPrice >= 10000) {
+          obj.number = [Number((this.info.contractPrice / 10000).toFixed(2))]
+          obj.content = '{nt}万'
+        } else {
+          obj.number = [Number(this.info.contractPrice)]
+          obj.toFixed = 0
+        }
+      }
+      return obj
+    },
     orderNumber () {
       let obj = {
         number: [0],
         content: '{nt}',
-        formatter: this.formatter
+        toFixed: 2
       }
-      if (this.info.orderMoney) {
-        obj.number = [this.info.orderMoney.toFixed(2)]
+      if (this.info.orderNumber) {
+        if (this.info.orderNumber >= 10000) {
+          obj.number = [Number((this.info.orderNumber / 10000).toFixed(2))]
+          obj.content = '{nt}万'
+        } else {
+          obj.number = [Number(this.info.orderNumber)]
+          obj.toFixed = 0
+        }
       }
       return obj
     },
@@ -176,10 +205,16 @@ export default {
       let obj = {
         number: [0],
         content: '{nt}',
-        formatter: this.formatter
+        toFixed: 2
       }
-      if (this.info.contractMoney) {
-        obj.number = [this.info.orderMoney.toFixed(2)]
+      if (this.info.contractNumber) {
+        if (this.info.contractNumber >= 10000) {
+          obj.number = [Number((this.info.contractNumber / 10000).toFixed(2))]
+          obj.content = '{nt}万'
+        } else {
+          obj.number = [Number(this.info.contractNumber)]
+          obj.toFixed = 0
+        }
       }
       return obj
     }
@@ -203,7 +238,7 @@ export default {
   width: 100%;
 }
 .number{
-  flex: 0 0 100px; /*no*/
+  flex: 0 0 150px; /*no*/
   overflow: hidden;
   width: 100%;
   display: flex;
@@ -223,11 +258,31 @@ export default {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  height: 100%;
 }
 .number .number_item  span.number_num{
   flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.number .number_item  span.number_num i{
+  font-size: 24px; /*no*/
+  color: #FDDC9D;
+  font-style: normal;
+  position: absolute;
+  left: 5px; /*no*/
+  top:50%;
+  transform: translateY(-18px);/*no*/
+
+}
+.number .number_item  span.number_num  .number_flop{
+  height: 100%;
 }
 .number .number_item  span.number_text{
-  flex: 0 0 10px ;/*no*/
+  color: #d1d5f2;
+  flex: 0 0 30px ;/*no*/
 }
 </style>

@@ -36,21 +36,21 @@ export default {
     align-items: center;
     height: 20px;/*no*/
     margin-right: 20px;/*no*/
-    font-size: 14px;/*no*/
+    font-size: 16px;/*no*/
 }
 .title .icon{
     flex:0 0 auto;
     padding: 0 5px;/*no*/
-    font-size: 16px;/*no*/
+    font-size: 18px;/*no*/
 }
 .title .text{
     flex: 0 0 auto;
-    font-size: 12px;/*no*/
+    font-size: 16px;/*no*/
     color: #bbd6d8;
     margin-right: 5px;/*no*/
 }
 .title .other {
-    flex: 1 1 auto;
+    width: 100px;
     height: 100%;
     overflow: hidden;
 }
