@@ -20,9 +20,7 @@
                         <TaskObjectivesTherr/>
                     </el-col>
                     <el-col :span="5">
-                        <dv-border-box-12 class="item">
-                            <div class="test">任务分析</div>
-                        </dv-border-box-12>
+                      <ProcessAnalysisFour />
                     </el-col>
                     <el-col :span="4">
                         <dv-border-box-12 class="item">
@@ -54,6 +52,7 @@ import Header from '@/components/Main/header.vue'
 import DataStatisticsOne from '@/components/Main/DataStatisticsOne.vue'
 import MapEchartsTow from '@/components/Main/MapEchartsTow.vue'
 import TaskObjectivesTherr from '@/components/Main/TaskObjectivesTherr.vue'
+import ProcessAnalysisFour from '@/components/Main/ProcessAnalysisFour.vue'
 export default {
   data () {
     return {
@@ -276,7 +275,8 @@ export default {
     Header,
     DataStatisticsOne,
     MapEchartsTow,
-    TaskObjectivesTherr
+    TaskObjectivesTherr,
+    ProcessAnalysisFour
   }
 }
 </script>

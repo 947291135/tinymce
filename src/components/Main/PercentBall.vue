@@ -3,22 +3,19 @@
 </template>
 
 <script>
-import * as echarts from 'echarts'
-// import * as echarts from 'echarts/core'
-// import {
-//   CanvasRenderer
-// } from 'echarts/renderers'
-// import {
-//   PieChart
-// } from 'echarts/charts'
-// import {
-//   TitleComponent,
-//   TooltipComponent,
-//   GridComponent
-// } from 'echarts/components'
-// echarts.use(
-//   [TitleComponent, TooltipComponent, GridComponent, PieChart, CanvasRenderer]
-// )
+import * as echarts from 'echarts/core'
+import {
+  CanvasRenderer
+} from 'echarts/renderers'
+import {
+  PieChart
+} from 'echarts/charts'
+import {
+  TitleComponent
+} from 'echarts/components'
+echarts.use(
+  [TitleComponent, PieChart, CanvasRenderer]
+)
 export default {
   data () {
     return {

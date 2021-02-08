@@ -103,9 +103,9 @@ export default {
             fontSize: 14,
             lineHeight: 22
           },
-          position: point => {
+          position: (pos, params, dom, rect, size) => {
             // 固定在顶部
-            return [point[0] + 50, point[1] - 20]
+            return [pos[0] + 20, pos[1] - 20]
           }
         },
         visualMap: {
@@ -407,7 +407,7 @@ export default {
 
 <style scoped>
 .MapEchartsTow{
-  background: #0B1124;
+  background:rgba(11,17,36,.7);
   display: flex;
   flex-direction: column;
   width: 100%;

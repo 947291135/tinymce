@@ -227,7 +227,7 @@ export default {
 
 <style scoped>
 .DataStatisticsOne{
-  background: #0B1124;
+  background:rgba(11,17,36,.7);
   display: flex;
   flex-direction: column;
   width: 100%;

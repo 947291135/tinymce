@@ -161,12 +161,12 @@ export default {
     overflow: hidden;
 }
 .TaskObjectivesTherr > div.conten > div{
-    background: #0B1124;
+    background:rgba(11,17,36,.7);
     padding: 10px; /*no*/
     box-sizing: border-box;
 }
 .TaskObjectivesTherr > div.conten .left{
-    flex: 0 0 70%;
+    width:70%;
     height: 100%;
     margin-right: 10px;
     display: flex;
@@ -189,7 +189,7 @@ export default {
     top: 0;
 }
 .TaskObjectivesTherr > div.conten .right{
-    flex: 0 0 30%;
+    width:30%;
     display: flex;
     flex-direction: column;
     align-items: stretch;

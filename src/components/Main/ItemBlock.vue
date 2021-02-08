@@ -51,7 +51,7 @@ export default {
 .itemBlock{
     width: 100%;
     height: 100%;
-    background: #0B1124;
+    background:rgba(11,17,36,.7);
     display: flex;
     position: relative;
     flex-direction: column;
