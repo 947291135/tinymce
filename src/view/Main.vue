@@ -17,14 +17,14 @@
                         </dv-border-box-12>
                     </el-col>
                     <el-col :span="7">
-                        <TaskObjectivesTherr/>
+                        <task-objectives-therr />
                     </el-col>
                     <el-col :span="5">
-                      <ProcessAnalysisFour />
+                      <process-analysis-four />
                     </el-col>
                     <el-col :span="4">
                         <dv-border-box-12 class="item">
-                            <div class="test">数据排行</div>
+                            <rejection-ranking-five />
                         </dv-border-box-12>
                     </el-col>
                 </el-row>
@@ -32,12 +32,12 @@
             <div class="conten-bottom">
                 <el-row :gutter="10">
                     <el-col :span="12">
-                        <dv-border-box-12 >
-                            <div class="test">数据统计</div>
+                        <dv-border-box-12 class="item">
+                            <regional-summary-six />
                         </dv-border-box-12>
                     </el-col>
                     <el-col :span="12">
-                        <dv-border-box-12 >
+                        <dv-border-box-12 class="item">
                             <div class="test">满意度统计</div>
                         </dv-border-box-12>
                     </el-col>
@@ -53,6 +53,8 @@ import DataStatisticsOne from '@/components/Main/DataStatisticsOne.vue'
 import MapEchartsTow from '@/components/Main/MapEchartsTow.vue'
 import TaskObjectivesTherr from '@/components/Main/TaskObjectivesTherr.vue'
 import ProcessAnalysisFour from '@/components/Main/ProcessAnalysisFour.vue'
+import RejectionRankingFive from '@/components/Main/RejectionRankingFive.vue'
+import RegionalSummarySix from '@/components/Main/RegionalSummarySix.vue'
 export default {
   data () {
     return {
@@ -276,7 +278,9 @@ export default {
     DataStatisticsOne,
     MapEchartsTow,
     TaskObjectivesTherr,
-    ProcessAnalysisFour
+    ProcessAnalysisFour,
+    RejectionRankingFive,
+    RegionalSummarySix
   }
 }
 </script>

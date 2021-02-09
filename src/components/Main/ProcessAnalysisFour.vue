@@ -178,12 +178,13 @@ export default {
       let dom = this.$refs.charts
       this.charts = echarts.init(dom)
       this.GetData()
-      window.addEventListener('resize', () => { // 执行
-        this.charts.resize()
-      })
+      window.addEventListener('resize', this.resize)
     })
   },
   methods: {
+    resize () {
+      this.charts.resize()
+    },
     GetData () {
       // 暂时不绑定动态数据
       this.charts.setOption(this.option)
@@ -200,6 +201,9 @@ export default {
   },
   components: {
     Title
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resize)
   }
 }
 </script>

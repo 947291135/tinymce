@@ -65,9 +65,7 @@ export default {
       let dom = this.$refs.percentBall
       this.charts = echarts.init(dom)
       this.getData()
-      window.addEventListener('resize', () => { // 执行
-        this.charts.resize()
-      })
+      window.addEventListener('resize', this.resize)
     })
   },
   props: {
@@ -100,12 +98,18 @@ export default {
     }
   },
   methods: {
+    resize () {
+      this.charts.resize()
+    },
     getData () {
       this.option.series.data[0].value = this.value
       this.option.series.data[1].value = 100 - this.value
       this.option.title.text = this.value + '%'
       this.charts.setOption(this.option)
     }
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resize)
   }
 }
 </script>

@@ -113,9 +113,7 @@ export default {
       this.charts = echarts.init(dom)
       this.charts.setOption(this.option)
       this.getData()
-      window.addEventListener('resize', () => { // 执行
-        this.charts.resize()
-      })
+      window.addEventListener('resize', this.resize)
     })
   },
   props: {
@@ -134,6 +132,9 @@ export default {
     }
   },
   methods: {
+    resize () {
+      this.charts.resize()
+    },
     getData () {
       this.option.series.data = this.info.typeDataList
       this.charts.setOption(this.option)
@@ -221,6 +222,9 @@ export default {
   },
   components: {
     Title
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resize)
   }
 }
 </script>

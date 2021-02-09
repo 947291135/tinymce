@@ -120,7 +120,6 @@ export default {
       let obj = {
         data: [...this.info.typeDataList]
       }
-      console.log(obj)
       return obj
     }
   },

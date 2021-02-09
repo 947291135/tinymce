@@ -5,6 +5,11 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 
+// 多线程打包优化
+const HappyPack = require('happypack')
+const os = require('os')
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -28,6 +33,11 @@ module.exports = {
       jQuery: 'jquery',
       $: 'jquery',
       'windows.jQuery': 'jquery'
+    }),
+    new HappyPack({
+      id: 'happy-babel-js',
+      loaders: ['babel-loader?cacheDirectory=true'],
+      threadPool: happyThreadPool
     })
   ],
   entry: {
@@ -61,7 +71,8 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        // loader: 'babel-loader',
+        loader: 'happypack/loader?id=happy-babel-js', // 增加新的HappyPack构建loader
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {

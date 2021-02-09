@@ -11,12 +11,12 @@
         </div> -->
       <el-form ref="form" :model="form" label-width="80px" class="form">
         <el-row>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="姓名" prop="name">
               <el-input v-model="form.name" placeholder="请输入姓名"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="性别" prop="sex">
               <el-select v-model="form.sex" placeholder="请选择性别" style="width:100%">
                 <el-option label="男" value="男" />
@@ -25,7 +25,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="出生年月" prop="date">
               <el-date-picker
                style="width:100%"
@@ -37,7 +37,7 @@
               </el-date-picker>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="政治面貌" prop="politics">
               <el-radio-group v-model="form.politics"  size="small">
                 <el-radio-button label="党员"></el-radio-button>
@@ -46,12 +46,14 @@
               </el-radio-group>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+        </el-row>
+        <el-row>
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="毕业学校" prop="graduationSchool">
               <el-input v-model="form.graduationSchool" placeholder="请输入毕业学校"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="毕业时间" prop="graduationTime">
               <el-date-picker
                style="width:100%"
@@ -63,42 +65,42 @@
               </el-date-picker>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="身份证号" prop="No">
               <el-input v-model="form.No" placeholder="请输入身份证号"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="专业" prop="major">
               <el-input v-model="form.major" placeholder="请输入专业"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="住址" prop="address">
               <el-input v-model="form.address" placeholder="请输入住址"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="邮政编码" prop="postalCode">
               <el-input v-model="form.postalCode" placeholder="请输入邮政编码"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="联系电话" prop="phone">
               <el-input v-model="form.phone" placeholder="请输入联系电话"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="户籍" prop="registry">
               <el-input v-model="form.registry" placeholder="请输入户籍"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="籍贯" prop="nativePlace">
               <el-input v-model="form.nativePlace" placeholder="请输入籍贯"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="身体状况" prop="state">
               <el-radio-group v-model="form.state"  size="small">
                 <el-radio-button label="健康"></el-radio-button>
@@ -107,7 +109,7 @@
               </el-radio-group>
             </el-form-item>
           </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
             <el-form-item label="工作单位" prop="workUnit">
               <el-input v-model="form.workUnit" placeholder="请输入工作单位"></el-input>
             </el-form-item>

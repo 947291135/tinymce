@@ -212,9 +212,7 @@ export default {
           this.charts.setOption(this.option)
           // 重新选择区域
           this.handleMapRandomSelect()
-          window.addEventListener('resize', () => { // 执行
-            this.charts.resize()
-          })
+          window.addEventListener('resize', this.resize)
         }
       })
     })
@@ -320,11 +318,14 @@ export default {
     // }
   },
   methods: {
+    resize () {
+      this.charts.resize()
+    },
     // 开启定时器
     startInterval () {
       const _self = this
       // 应通过接口获取配置时间，暂时写死5s
-      const time = 2000
+      const time = 5000
       if (this.intervalId !== null) {
         clearInterval(this.intervalId)
       }
@@ -401,6 +402,11 @@ export default {
   },
   components: {
     Title
+  },
+  beforeDestroy () {
+    clearInterval(this.intervalId)
+    this.intervalId = null
+    window.removeEventListener('resize', this.resize)
   }
 }
 </script>
