@@ -38,7 +38,7 @@
                     </el-col>
                     <el-col :span="12">
                         <dv-border-box-12 class="item">
-                            <div class="test">满意度统计</div>
+                            <statistics-seven />
                         </dv-border-box-12>
                     </el-col>
                 </el-row>
@@ -55,6 +55,7 @@ import TaskObjectivesTherr from '@/components/Main/TaskObjectivesTherr.vue'
 import ProcessAnalysisFour from '@/components/Main/ProcessAnalysisFour.vue'
 import RejectionRankingFive from '@/components/Main/RejectionRankingFive.vue'
 import RegionalSummarySix from '@/components/Main/RegionalSummarySix.vue'
+import StatisticsSeven from '@/components/Main/StatisticsSeven.vue'
 export default {
   data () {
     return {
@@ -280,7 +281,8 @@ export default {
     TaskObjectivesTherr,
     ProcessAnalysisFour,
     RejectionRankingFive,
-    RegionalSummarySix
+    RegionalSummarySix,
+    StatisticsSeven
   }
 }
 </script>
