@@ -39,6 +39,7 @@ export default {
         },
         legend: {
           bottom: '0',
+          width: 350,
           data: ['检验业务部', '技术质询部', '行政财务部', '顺海公司', '惠州业务部'],
           //   selectedMode: 'single',
           textStyle: {
@@ -59,7 +60,7 @@ export default {
             { name: '达标数量', max: 300 }
           ],
           center: ['50%', '40%'],
-          radius: '75',
+          radius: '60',
           shape: 'circle',
           splitNumber: 5,
           name: {

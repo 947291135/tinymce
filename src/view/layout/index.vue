@@ -98,6 +98,12 @@ export default {
     flex: 1;
     position: relative;
   }
+
+  @media screen and (max-width: 640px) {
+    .app-wrapper .roter-content {
+        overflow-x: auto;
+    }
+}
   .sidebar-container{
     flex: 0 0 200px;/*no*/
     z-index: 1001;

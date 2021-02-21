@@ -4,5 +4,6 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_ROOT: '"http://localhost/test"'
+  API_ROOT: '"http://localhost/test"',
+  UPLOAD_URL: '"http://localhost/upload/"' //https://admin.mgblog.cn/upload/index.php
 })

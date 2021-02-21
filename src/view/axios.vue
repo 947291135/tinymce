@@ -11,19 +11,16 @@
               <el-button type="primary" @click="xml('/api/proxy.php')">proxy请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary" @click="xmlJSONP('http://www.api.com/jsonp.php')" >jsonp请求</el-button>
+              <el-button type="primary" @click="xmlJSONP('https://admin.mgblog.cn/admin/jsonp.php')" >jsonp请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary" @click="xml('http://www.api.com/CORS.php')">cors请求</el-button>
-            </el-col>
-            <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="1">
-              <el-button type="primary" @click="test('http://www.api.com/CORS.php')">test</el-button>
+              <el-button type="primary" @click="xml('https://admin.mgblog.cn/admin/CORS.php')">cors请求</el-button>
             </el-col>
 
           </el-form-item>
           <el-form-item label="axios">
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary" @click="axios('http://www.api.com/index.php')">普通请求</el-button>
+              <el-button type="primary" @click="axios('https://admin.mgblog.cn/admin/index.php')">普通请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
               <el-button type="primary" @click="axios('/api/proxy.php')">proxy请求</el-button>
@@ -32,24 +29,24 @@
               <el-button type="primary" disabled>jsonp请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary"  @click="axios('http://www.api.com/CORS.php')">cors请求</el-button>
+              <el-button type="primary"  @click="axios('https://admin.mgblog.cn/admin/CORS.php')">cors请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary"  @click="Blog('http://localhost/phpdemo/excel.php')">Blog文件流</el-button>
+              <el-button type="primary"  @click="Blog('http://admin.mgblog.cn/admin/phpdemo/excel.php')">Blog文件流</el-button>
             </el-col>
           </el-form-item>
           <el-form-item label="JQ-AJAX">
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary" @click="JQuery('http://www.api.com/index.php')">普通请求</el-button>
+              <el-button type="primary" @click="JQuery('https://admin.mgblog.cn/admin')">普通请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
               <el-button type="primary" @click="JQuery('/api/proxy.php')">proxy请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary" @click="JQuery_Jsonp('http://www.api.com/jsonp.php')">jsonp请求</el-button>
+              <el-button type="primary" @click="JQuery_Jsonp('https://admin.mgblog.cn/admin/jsonp.php')">jsonp请求</el-button>
             </el-col>
             <el-col :xs="8" :sm="6" :md="4" :lg="2" :xl="2">
-              <el-button type="primary"  @click="JQuery('http://www.api.com/CORS.php')">cors请求</el-button>
+              <el-button type="primary"  @click="JQuery('https://admin.mgblog.cn/admin/CORS.php')">cors请求</el-button>
             </el-col>
           </el-form-item>
           <el-form-item label="ip定位">
@@ -83,9 +80,14 @@ export default {
       xhr.open('POST', url, true)
       // // 设置发送数据的请求格式
       xhr.setRequestHeader('content-type', 'application/json')
-      xhr.onreadystatechange = function () {
+      xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) { // 200 = OK
+            let data = JSON.parse(xhr.responseText)
+            if (data.type === 'success') {
+              this.$message({type: 'success', message: data.body.message})
+            }
+
             console.log(JSON.parse(xhr.responseText))
           } else {
             alert('Problem retrieving XML data')
@@ -99,13 +101,16 @@ export default {
       this.jsonp({
         url: url,
         data: data,
-        success: function (obj) {
-          console.log(obj)
+        success: res => {
+          if (res.type === 'success') {
+            this.$message({type: 'success', message: res.body.message})
+          }
         }
       })
     },
     jsonp (obj) {
       // 定义一个处理Jsonp返回数据的回调函数
+
       window['callback'] = function (object) {
         obj.success(object)
       }
@@ -124,19 +129,25 @@ export default {
         // 如果有city参数为定位
         if (Object.hasOwnProperty.call(res, 'city')) {
           this.$message.success(`axios定位成功，当前位置:${res.province + res.city}`)
+          return
+        }
+        if (res.type === 'success') {
+          this.$message({type: 'success', message: res.body.message})
         }
         console.log(res)
       }).catch(err => {
+        this.$message.error(err.body.message)
         console.log(err)
       })
     },
     Blog (url = 'http://localhost/phpdemo/excel.php') {
-      this.$http.request({url, responseType: 'arraybuffer'}).then(rel => {
-        let url = URL.createObjectURL(new Blob([rel]))
+      this.$http.request({url, responseType: 'arraybuffer'}).then(res => {
+        this.$message({type: 'success', message: '下载成功'})
+        let url = URL.createObjectURL(new Blob([res]))
         let a = document.createElement('a')
         document.body.appendChild(a) // 此处增加了将创建的添加到body当中
         a.href = url
-        a.download = 'test.xlsx'
+        a.download = 'test.xls'
         a.target = '_blank'
         a.click()
         a.remove() // 将a标签移除
@@ -158,19 +169,30 @@ export default {
               this.$message.success(`ajax定位成功，当前位置:${res.province + res.city}`)
             }
           }
+          if (res.type === 'success') {
+            this.$message({type: 'success', message: res.body.message})
+          }
           console.log(res)
+        },
+        error: error => {
+          this.$message.error('请求失败，跨越资源限制')
+          console.log(error)
         }
       })
     },
     JQuery_Jsonp (url = 'http://www.api.com/index.php', data = {test: '123'}) {
+      // console.log(1)
       $.ajax({
         url: url,
         method: 'POST',
         data: data,
         dataType: 'jsonp',
         jsonpCallback: 'callback',
-        success (rel) {
-          console.log(rel)
+        success: res => {
+          if (res.type === 'success') {
+            this.$message({type: 'success', message: res.body.message})
+          }
+          console.log(res)
         }
       })
     },

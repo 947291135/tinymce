@@ -47,8 +47,7 @@ export default new Router({
           meta: {
             title: '表单',
             icon: 'el-icon-menu',
-            activeMenu: '/form',
-            affix: true
+            activeMenu: '/form'
           }
         }
       ]

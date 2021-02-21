@@ -5,7 +5,7 @@
                 <el-form-item label="上传列表">
                     <el-upload
                         class="upload-demo"
-                        action="./index.php"
+                        :action="actionUrl"
                         accept=".jpg,.jpeg,.png,.gif,.JPG,.JPEG,.GIF"
                         :on-preview="handlePreview"
                         :on-remove="handleRemove"
@@ -46,7 +46,7 @@
                                     复制链接
                                 </el-button>
                             </template>
-                    </el-table-column>
+                        </el-table-column>
                     </el-table>
             </el-form>
         </el-row>
@@ -83,8 +83,8 @@ export default {
       input.setSelectionRange(0, input.value.length)
       document.execCommand('Copy')
       document.body.removeChild(input)
-      this.$notify({
-        title: '提示',
+      this.$message({
+        type: 'success',
         message: '复制成功'
       })
     },
@@ -109,6 +109,11 @@ export default {
         }
       }
       return false
+    }
+  },
+  computed: {
+    actionUrl () {
+      return process.env.UPLOAD_URL
     }
   }
 }
