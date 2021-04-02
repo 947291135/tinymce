@@ -9,128 +9,133 @@
               frameborder="0" scrolling="no" ref="iframeDom"
             ></iframe>
         </div> -->
-      <el-form ref="form" :model="form" label-width="80px" class="form">
-        <el-row>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="姓名" prop="name">
-              <el-input v-model="form.name" placeholder="请输入姓名"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="性别" prop="sex">
-              <el-select v-model="form.sex" placeholder="请选择性别" style="width:100%">
-                <el-option label="男" value="男" />
-                <el-option label="女" value="女" />
-                <el-option label="未知" value="未知" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="出生年月" prop="date">
-              <el-date-picker
-               style="width:100%"
-                v-model="form.date"
-                type="date"
-                format="yyyy/MM/dd"
-                value-format="yyyy/MM/dd"
-                placeholder="选择出生年月">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="政治面貌" prop="politics">
-              <el-radio-group v-model="form.politics"  size="small">
-                <el-radio-button label="党员"></el-radio-button>
-                <el-radio-button label="群众"></el-radio-button>
-                <el-radio-button label="其他"></el-radio-button>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="毕业学校" prop="graduationSchool">
-              <el-input v-model="form.graduationSchool" placeholder="请输入毕业学校"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="毕业时间" prop="graduationTime">
-              <el-date-picker
-               style="width:100%"
-                v-model="form.graduationTime"
-                type="date"
-                format="yyyy/MM/dd"
-                value-format="yyyy/MM/dd"
-                placeholder="选择毕业时间">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="身份证号" prop="No">
-              <el-input v-model="form.No" placeholder="请输入身份证号"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="专业" prop="major">
-              <el-input v-model="form.major" placeholder="请输入专业"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="住址" prop="address">
-              <el-input v-model="form.address" placeholder="请输入住址"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="邮政编码" prop="postalCode">
-              <el-input v-model="form.postalCode" placeholder="请输入邮政编码"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="联系电话" prop="phone">
-              <el-input v-model="form.phone" placeholder="请输入联系电话"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="户籍" prop="registry">
-              <el-input v-model="form.registry" placeholder="请输入户籍"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="籍贯" prop="nativePlace">
-              <el-input v-model="form.nativePlace" placeholder="请输入籍贯"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="身体状况" prop="state">
-              <el-radio-group v-model="form.state"  size="small">
-                <el-radio-button label="健康"></el-radio-button>
-                <el-radio-button label="良好"></el-radio-button>
-                <el-radio-button label="较差"></el-radio-button>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <el-form-item label="工作单位" prop="workUnit">
-              <el-input v-model="form.workUnit" placeholder="请输入工作单位"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item prop="education" label-width="0px">
-              <educationTable :list="form.education"/>
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item prop="workList" label-width="0px">
-              <workListTable :list="form.workList"/>
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item prop="projectList" label-width="0px">
-              <projectListTable :list="form.projectList"/>
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
+      <div class="content">
+        <el-form ref="form" :model="form" label-width="80px" class="form">
+          <el-row>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="form.name" placeholder="请输入姓名"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="性别" prop="sex">
+                <el-select v-model="form.sex" placeholder="请选择性别" style="width:100%">
+                  <el-option label="男" value="男" />
+                  <el-option label="女" value="女" />
+                  <el-option label="未知" value="未知" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="出生年月" prop="date">
+                <el-date-picker
+                style="width:100%"
+                  v-model="form.date"
+                  type="date"
+                  format="yyyy/MM/dd"
+                  value-format="yyyy/MM/dd"
+                  placeholder="选择出生年月">
+                </el-date-picker>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="政治面貌" prop="politics">
+                <el-radio-group v-model="form.politics"  size="small">
+                  <el-radio-button label="党员"></el-radio-button>
+                  <el-radio-button label="群众"></el-radio-button>
+                  <el-radio-button label="其他"></el-radio-button>
+                </el-radio-group>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="毕业学校" prop="graduationSchool">
+                <el-input v-model="form.graduationSchool" placeholder="请输入毕业学校"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="毕业时间" prop="graduationTime">
+                <el-date-picker
+                style="width:100%"
+                  v-model="form.graduationTime"
+                  type="date"
+                  format="yyyy/MM/dd"
+                  value-format="yyyy/MM/dd"
+                  placeholder="选择毕业时间">
+                </el-date-picker>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="身份证号" prop="No">
+                <el-input v-model="form.No" placeholder="请输入身份证号"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="专业" prop="major">
+                <el-input v-model="form.major" placeholder="请输入专业"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="住址" prop="address">
+                <el-input v-model="form.address" placeholder="请输入住址"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="邮政编码" prop="postalCode">
+                <el-input v-model="form.postalCode" placeholder="请输入邮政编码"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="联系电话" prop="phone">
+                <el-input v-model="form.phone" placeholder="请输入联系电话"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="户籍" prop="registry">
+                <el-input v-model="form.registry" placeholder="请输入户籍"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="籍贯" prop="nativePlace">
+                <el-input v-model="form.nativePlace" placeholder="请输入籍贯"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="身体状况" prop="state">
+                <el-radio-group v-model="form.state"  size="small">
+                  <el-radio-button label="健康"></el-radio-button>
+                  <el-radio-button label="良好"></el-radio-button>
+                  <el-radio-button label="较差"></el-radio-button>
+                </el-radio-group>
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
+              <el-form-item label="工作单位" prop="workUnit">
+                <el-input v-model="form.workUnit" placeholder="请输入工作单位"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="24">
+              <el-form-item prop="education" label-width="0px">
+                <educationTable :list="form.education"/>
+              </el-form-item>
+            </el-col>
+            <el-col :span="24">
+              <el-form-item prop="workList" label-width="0px">
+                <workListTable :list="form.workList"/>
+              </el-form-item>
+            </el-col>
+            <el-col :span="24">
+              <el-form-item prop="projectList" label-width="0px">
+                <projectListTable :list="form.projectList"/>
+              </el-form-item>
+            </el-col>
+            <el-col :span="24">
+              <ImgList :data="form.imgList" />
+            </el-col>
+          </el-row>
+        </el-form>
+      </div>
       <div class="footer">
         <el-button size="small" @click="resetForm">重置</el-button>
         <el-button size="small" type="primary" @click="click2">导出</el-button>
@@ -153,6 +158,7 @@ import {FileUpload} from '@/assets/js/FileTypeTrans.js'
 import educationTable from '@/components/world/educationTable.vue'
 import workListTable from '@/components/world/workListTable.vue'
 import projectListTable from '@/components/world/projectListTable.vue'
+import ImgList from '@/components/world/ImgList.vue'
 export default {
   data () {
     return {
@@ -175,6 +181,88 @@ export default {
         education: [], // 教育经历
         workList: [], // 工作经历
         projectList: [], // 项目经历
+        imgList: [
+          [
+            {
+              'createdDt': '2021-03-13 15:53:19',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]foubj8rc0l8b8auq.png',
+              'fileName': 'test',
+              'remarks': '123'
+            },
+            {
+              'createdDt': '2021-03-13 16:08:29',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
+              'fileName': 'test',
+              'remarks': ''
+            }
+          ], [
+            {
+              'createdDt': '2021-03-13 15:53:19',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]foubj8rc0l8b8auq.png',
+              'fileName': 'test',
+              'remarks': '123'
+            },
+            {
+              'createdDt': '2021-03-13 16:08:29',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
+              'fileName': 'test',
+              'remarks': ''
+            }
+          ], [
+            {
+              'createdDt': '2021-03-13 15:53:19',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]foubj8rc0l8b8auq.png',
+              'fileName': 'test',
+              'remarks': '123'
+            },
+            {
+              'createdDt': '2021-03-13 16:08:29',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
+              'fileName': 'test',
+              'remarks': ''
+            }
+          ], [
+            {
+              'createdDt': '2021-03-13 15:53:19',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]foubj8rc0l8b8auq.png',
+              'fileName': 'test',
+              'remarks': '123'
+            },
+            {
+              'createdDt': '2021-03-13 16:08:29',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
+              'fileName': 'test',
+              'remarks': ''
+            }
+          ], [
+            {
+              'createdDt': '2021-03-13 15:53:19',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]foubj8rc0l8b8auq.png',
+              'fileName': 'test',
+              'remarks': '123'
+            },
+            {
+              'createdDt': '2021-03-13 16:08:29',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
+              'fileName': 'test',
+              'remarks': ''
+            }
+          ], [
+            {
+              'createdDt': '2021-03-13 15:53:19',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]foubj8rc0l8b8auq.png',
+              'fileName': 'test',
+              'remarks': '123'
+            },
+            {
+              'createdDt': '2021-03-13 16:08:29',
+              'dataUrl': 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
+              'fileName': 'test',
+              'remarks': ''
+            }
+          ]
+        ],
+        image: 'http://jwfx.pinea.club/test[~]p9yxzb2tsyumiugm.png',
         achievement: null, // 业绩
         reason: null, // 应聘岗位、理由及其他需要说明
         remarks: null
@@ -230,43 +318,93 @@ export default {
     exportDocx (tempDocxPath, data, fileName) {
       // 读取并获得模板文件的二进制内容
       console.log(tempDocxPath)
+      let ImageModule = require('docxtemplater-image-module-free')
+      // var ImageModule = require('open-docxtemplater-image-module')
       JSZipUtils.getBinaryContent(tempDocxPath, (error, content) => {
         console.log(tempDocxPath, data, fileName, error, content)
         if (error) {
           throw error
         }
+        // 导出图片
+        var opts = {}
+        opts.centered = true
+        opts.fileType = 'docx'
+        opts.getImage = function (tagValue, tagName) {
+          return new Promise(function (resolve, reject) {
+            JSZipUtils.getBinaryContent(tagValue, function (error, content) {
+              if (error) {
+                return reject(error)
+              }
+              return resolve(content)
+            })
+          })
+        }
+        // 图片有关代码，没有图片的可以删除
+        opts.getSize = function (img, tagValue, tagName) {
+          console.log(img, tagValue, tagName)
+          // FOR FIXED SIZE IMAGE :
+          return [280, 250]// 图片大小 （这个可以写成动态的，开发文档上有）
+          // return new Promise(function (resolve, reject) {
+          //   console.log(img, tagValue, tagName)
+          //   var image = new Image()
+          //   // eslint-disable-next-line no-undef
+          //   image.src = url
+          //   image.onload = function () {
+          //     resolve([image.width, image.height])
+          //   }
+          //   image.onerror = function (e) {
+          //     console.log('img, tagValue, tagName : ', img, tagValue, tagName)
+          //     reject(e)
+          //   }
+          // })
+        }
+        const imageModule = new ImageModule(opts)
+        // 导出图片结束
+
         let zip = new PizZip(content)
         // eslint-disable-next-line new-cap
         let doc = new docxtemplater().loadZip(zip)
-        doc.setData(data)
-        try {
-          // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+          .attachModule(imageModule)
+          .compile()
+        // doc.attachModule(imageModule)
+        // doc.loadZip(zip)
+        doc.resolveData(data).then(() => {
           doc.render()
-        } catch (error) {
-          let e = {
-            message: error.message,
-            name: error.name,
-            stack: error.stack,
-            properties: error.properties
-          }
-          console.log({
-            error: e
+          let out = doc.getZip().generate({
+            type: 'blob',
+            mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
           })
-          // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
-          throw error
-        }
-        // 导出的文件虽然说是blob但是不能实际下载，需要先转Base64->File->下载
-        let out = doc.getZip().generate({
-          type: 'blob',
-          mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-        }) // Output the document using Data-URI
-        //  移动端不支持
-        // this.blobToFile(out, 'test.docx').then(res => {
-        //   this.FileUpload(res, 'test.docx')
-        // })
+          saveAs(out, fileName)
+        })
+        // doc.setData(data)
+        // try {
+        //   // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+        //   doc.render()
+        // } catch (error) {
+        //   let e = {
+        //     message: error.message,
+        //     name: error.name,
+        //     stack: error.stack,
+        //     properties: error.properties
+        //   }
+        //   console.log({
+        //     error: e
+        //   })
+        //   // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+        //   throw error
+        // }
+        // // 导出的文件虽然说是blob但是不能实际下载，需要先转Base64->File->下载
+        // let out = doc.getZip().generate({
+        //   type: 'blob',
+        //   mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        // }) // Output the document using Data-URI
+        // //  移动端不支持
+        // // this.blobToFile(out, 'test.docx').then(res => {
+        // //   this.FileUpload(res, 'test.docx')
+        // // })
 
-        // 直接下载
-        saveAs(out, fileName)
+        // // 直接下载
+        // saveAs(out, fileName)
         // Base64->File->下载/上传
         // this.blobToBase64(out).then(res => {
         //   let blob = this.Base64ToFile(res, 'test.docx')
@@ -335,7 +473,8 @@ export default {
   components: {
     educationTable,
     workListTable,
-    projectListTable
+    projectListTable,
+    ImgList
   }
 }
 </script>
@@ -346,21 +485,24 @@ export default {
     overflow: auto;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.mian .content{
+  flex: 1 1 auto;
+  overflow-y:auto;
+  overflow-x: hidden;
+
 }
 .mian .form{
   padding: 20px 50px 0;
 }
 .mian .footer{
-  position: sticky;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 50px; /*no*/
+  flex:0 0 50px; /*no*/
   background-color: #fff;
   box-shadow:0 -2px 3px 0 rgb(0 0 0 / 12%), 0 0 3px 0 rgb(0 0 0 / 4%); /*no*/
   z-index: 999;
