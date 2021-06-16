@@ -53,26 +53,48 @@ export default new Router({
       ]
     },
     {
-      path: '/axios',
+      path: '/equipment',
       component: Layout,
-      redirect: '/axios/index',
+      redirect: '/equipment/info',
       meta: {
-        title: 'Axios',
-        icon: 'el-icon-s-promotion'
+        title: '设备管理',
+        icon: 'el-icon-receiving',
+        affix: true
       },
       children: [
         {
-          path: 'index',
-          name: 'Axios',
-          component: () => import('@/view/axios.vue'),
+          path: '/equipment/info',
+          component: () => import('@/view/equipment'),
+          name: 'Textarea',
           meta: {
-            title: 'Axios',
-            icon: 'el-icon-s-promotion',
-            activeMenu: '/axios'
+            title: '设备管理',
+            icon: 'el-icon-receiving',
+            activeMenu: '/equipment'
           }
         }
       ]
     },
+    // {
+    //   path: '/axios',
+    //   component: Layout,
+    //   redirect: '/axios/index',
+    //   meta: {
+    //     title: 'Axios',
+    //     icon: 'el-icon-s-promotion'
+    //   },
+    //   children: [
+    //     {
+    //       path: 'index',
+    //       name: 'Axios',
+    //       component: () => import('@/view/axios.vue'),
+    //       meta: {
+    //         title: 'Axios',
+    //         icon: 'el-icon-s-promotion',
+    //         activeMenu: '/axios'
+    //       }
+    //     }
+    //   ]
+    // },
     {
       path: '/upload',
       component: Layout,

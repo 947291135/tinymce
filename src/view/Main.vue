@@ -1,6 +1,7 @@
 <template>
-    <div class="main">
+    <div class="main" ref="main">
         <div class="header">
+            <!-- <div @click="full" style="color:#fff">button </div> -->
             <Header />
         </div>
         <div class="conten">
@@ -56,6 +57,7 @@ import ProcessAnalysisFour from '@/components/Main/ProcessAnalysisFour.vue'
 import RejectionRankingFive from '@/components/Main/RejectionRankingFive.vue'
 import RegionalSummarySix from '@/components/Main/RegionalSummarySix.vue'
 import StatisticsSeven from '@/components/Main/StatisticsSeven.vue'
+import { useFullscreen } from '@vueuse/core'
 export default {
   data () {
     return {
@@ -151,7 +153,8 @@ export default {
             value: 0
           }
         ]
-      }
+      },
+      isFull: false
     }
   },
   created () {
@@ -266,12 +269,24 @@ export default {
     sum (m, n) {
       var num = Math.floor(Math.random() * (m - n) + n)
       return num
+    },
+    full () {
+      let dom = this.$refs.main
+      const { toggle, isFullscreen } = useFullscreen(dom)
+
+      toggle()
+      console.log(isFullscreen.value)
     }
   },
   beforeDestroy () {
     if (this.time) {
       clearInterval(this.time)
       this.time = null
+    }
+  },
+  watch: {
+    isFull (newVal) {
+      console.log(newVal)
     }
   },
   components: {
@@ -296,6 +311,8 @@ export default {
     /* background-position:; */
     background-size: cover;
     position: absolute;
+    width: 100%;
+    height: 100%;
     min-width: 1700px; /*no*/
     min-height: 1200px;/*no*/
     left: 0;
@@ -319,7 +336,6 @@ export default {
 .main .conten{
     flex: 1 1 auto;
     padding: 20px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
