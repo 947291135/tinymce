@@ -14,6 +14,7 @@
       <Tables />
       <Execl/>
       <!-- <p class="test">{{this.$store.getters.test}}</p> -->
+      <testTables style="margin-top:15px"/>
     </div>
 </template>
 
@@ -21,10 +22,12 @@
 import { regionData, CodeToText } from 'element-china-area-data'
 import Tables from '@/components/element/table.vue'
 import Execl from '@/components/element/execl.vue'
+import testTables from '@/components/element/testTable.vue'
 export default {
   components: {
     Tables,
-    Execl
+    Execl,
+    testTables
   },
   data () {
     return {
