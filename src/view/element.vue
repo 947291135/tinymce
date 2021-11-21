@@ -1,6 +1,9 @@
 <template>
     <div :class="['element',{oppen:sidebarshow}]">
       <el-form ref="form" label-width="80px" label-position="top">
+        <el-form-item label="打印页面">
+          <Print />
+        </el-form-item>
         <el-form-item label="三级联动">
           <el-cascader
               size="large"
@@ -23,11 +26,13 @@ import { regionData, CodeToText } from 'element-china-area-data'
 import Tables from '@/components/element/table.vue'
 import Execl from '@/components/element/execl.vue'
 import testTables from '@/components/element/testTable.vue'
+import Print from '@/components/element/print.vue'
 export default {
   components: {
     Tables,
     Execl,
-    testTables
+    testTables,
+    Print
   },
   data () {
     return {
