@@ -76,6 +76,7 @@ export default {
       this.polygonPopVisible(false)
       this.map.setDefaultCursor('pointer')
       this.mouseTool.close(true) // 结束绘制
+      this.mouseTool.off('draw', this.drawFn)
       this.polygonBtn.type = 'default'
       this.polygonBtn.text = '多边形围栏'
       this.polygonBtn.tip = false
@@ -92,11 +93,12 @@ export default {
         zIndex: 50
       }
       this.mouseTool.polygon(options)
-      this.mouseTool.on('draw', e => {
-        // e.obj 为绘制出来的覆盖物对象
-        let path = e.obj.getPath()
-        this.addPolygon(path)
-      })
+      this.mouseTool.on('draw', this.drawFn)
+    },
+    drawFn (e) {
+      // e.obj 为绘制出来的覆盖物对象
+      let path = e.obj.getPath()
+      this.addPolygon(path)
     },
     // 表单窗口
     polygonPopVisible (visible = false, options = {}, curPath) {
@@ -147,8 +149,38 @@ export default {
       // 记录游标值
       if (isParent) {
         this.polygon = polygon
-        this.map.setFitView([polygon])
+        this.map.setFitView([polygon], true, [60, 60, 60, 60], 30)
       } else {
+        let polygonPath = this.polygon.getPath()
+        let isRingInRing = AMap.GeometryUtil.isRingInRing(path, polygonPath)
+        // 判断是否超出父级取域
+        if (!isRingInRing) {
+          this.stopPaintPolygon()
+          this.$message.error('绘制区域不能超出父区域')
+          this.$nextTick(() => {
+            this.startPaintPolygon()
+          })
+          return
+        }
+        // 判断是否与其他子项重叠
+        if (this.polygonPathList && this.polygonPathList.length) {
+          let isRingInRingItem = this.polygonPathList.some(item => {
+            let itemPath = item.getPath()
+            // 小圈是否在大圈内
+            let isRingInRing = AMap.GeometryUtil.isRingInRing(path, itemPath)
+            // 两圈是否交叉
+            let doesRingRingIntersect = AMap.GeometryUtil.doesRingRingIntersect(path, itemPath)
+            return doesRingRingIntersect || isRingInRing
+          })
+          if (isRingInRingItem) {
+            this.stopPaintPolygon()
+            this.$message.error('绘制区域不能在其他区域内或者重叠')
+            this.$nextTick(() => {
+              this.startPaintPolygon()
+            })
+            return
+          }
+        }
         this.polygonPathList.push(polygon)
       }
       this.map.add(polygon)
