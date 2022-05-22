@@ -40,7 +40,7 @@
     "pizzip": "^3.0.6",
     "postcss-px2rem-exclude": "0.0.6",
     "showdown": "^1.9.1",
-    "tinymce": "^5.1.5",
+    "tinymce": "^5.10.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-router-tab": "^1.0.0-alpha.4",
